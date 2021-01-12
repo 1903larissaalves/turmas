@@ -1,13 +1,10 @@
 <po-page-default>
-<!--    <h2>Disciplinas Cadastradas:</h2>
+    <h2>Disciplinas Cadastradas:</h2>
     <ul style="list-style-type: none">
         <div *ngFor="let disciplina of disciplinas">
             <app-disciplina [disciplina]="disciplina.nome"></app-disciplina>
-            {{ disciplina.nome }}
         </div>
-    </ul> -->
-    <div *ngFor="let disciplina of disciplinas">
-        <app-disciplina [disciplina]="disciplina.nome"></app-disciplina>
-        {{ disciplina.nome }}
-    </div>
+    </ul>
+    <po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
+    <po-button p-label="Próximo"></po-button>
 </po-page-default>
