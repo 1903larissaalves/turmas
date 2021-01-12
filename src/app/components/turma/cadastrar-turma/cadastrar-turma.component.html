@@ -1,0 +1,22 @@
+<po-page-default>
+    <div>
+        <h2>Cadastrar Turma</h2>
+        <form>
+            <po-input name="numeroTurma" p-label="Número turma:"></po-input>
+            <po-input name="ano" p-label="Ano:"></po-input>
+            <po-select
+                name="select"
+                p-label="Período Letivo:"
+                [p-options]="[
+                    { label: '1° Trimestre', value: '1' },
+                    { label: '2° Trimestre', value: '2' },
+                    { label: '3° Trimestre', value: '3' }
+                ]">
+            </po-select>
+            <po-input name="vagas" p-label="Vagas:"></po-input>
+            <po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
+            <po-button p-label="Próximo" (p-click)="proximo()"></po-button>
+        </form>
+    </div>
+</po-page-default>
+    

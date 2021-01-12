@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { PoButtonModule } from '@po-ui/ng-components';
 
 import { HomeComponent } from './components/home/home.component';
+import { CadastrarTurmaComponent } from './components/turma/cadastrar-turma/cadastrar-turma.component';
+import { AppRotasModule } from './app.rotas.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CadastrarTurmaComponent
   ],
   imports: [
     BrowserModule,
     PoModule,
     PoButtonModule,
+    AppRotasModule,
     RouterModule.forRoot([])
   ],
   providers: [],
