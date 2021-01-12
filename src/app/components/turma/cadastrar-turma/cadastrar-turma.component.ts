@@ -13,7 +13,7 @@ export class CadastrarTurmaComponent{
     }
 
     proximo(){
-        alert("teste");
+        this.router.navigateByUrl('listar-disciplinas');
     }
 
 }
