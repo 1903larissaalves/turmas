@@ -6,5 +6,25 @@
         </li>
     </ul>
     <po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
+    
+    <po-modal 
+        p-title="Cadastrar novo aluno" 
+        [p-primary-action]="confirmar" 
+        [p-secondary-action]="close">
+        <form #optionsForm="ngForm">
+            <po-input name="nome" p-label="Nome Completo:"></po-input>
+            <po-select
+                name="select"
+                p-label="Ingresso:"
+                [p-options]="[
+                    { label: 'Vestibular', value: '1' },
+                    { label: 'Enade', value: '2' }
+                ]">
+            </po-select>          
+        </form>
+    </po-modal>
+    <po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>     
     <po-button p-label="Concluir" (p-click)="finalizarTurma()"></po-button>
+
+
 </po-page-default>

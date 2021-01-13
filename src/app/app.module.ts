@@ -12,6 +12,7 @@ import { ListarDisciplinasComponents } from './components/disciplina/listar-disc
 import { DisciplinaComponent } from './components/disciplina/disciplina/disciplina.component';
 import { AlunoComponent } from './components/aluno/aluno/aluno.component';
 import { ListarAlunosComponent } from './components/aluno/listar-alunos/listar-alunos.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,7 +31,8 @@ import { ListarAlunosComponent } from './components/aluno/listar-alunos/listar-a
     PoModule,
     PoButtonModule,
     AppRotasModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
