@@ -11,9 +11,11 @@
         p-title="Cadastrar novo aluno" 
         [p-primary-action]="confirmar" 
         [p-secondary-action]="close">
-        <form #optionsForm="ngForm">
-            <po-input name="nome" p-label="Nome Completo:"></po-input>
+        <form #optionsForm="ngForm" [formGroup]="alunoForm">
+            <po-input formControlName="nome" name="nome" p-label="Nome Completo:"></po-input>
             <po-select
+                formControlName="ingresso"
+                (p-change)="selecionarIngresso($event)"
                 name="select"
                 p-label="Ingresso:"
                 [p-options]="[

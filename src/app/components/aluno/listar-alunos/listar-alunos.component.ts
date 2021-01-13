@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
 import { AlunoService } from '../Aluno.service';
@@ -11,16 +11,24 @@ export class ListarAlunosComponent implements OnInit{
 
     alunos: any[] = [];
 
+    alunoForm: FormGroup;
+    ingresso: string;
+
     @ViewChild('optionsForm', { static: true }) form: NgForm;
     
     @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
 
     constructor(private alunoService: AlunoService,
-                private router: Router){}
+                private router: Router, 
+                private formBuilder: FormBuilder){}
 
     ngOnInit(): void {
         this.alunos = this.alunoService.listarAlunos();
-        console.log(this.alunoService);
+
+        this.alunoForm = this.formBuilder.group({
+            nome:[''],
+            ingresso:['']
+        });
     }
 
     cancelar(){
@@ -37,6 +45,15 @@ export class ListarAlunosComponent implements OnInit{
 
     cadastrarAluno(){
         console.log("entrou no cadastrar");
+        let novoAluno = {
+            nome:  this.alunoForm.get('nome').value,
+            ingresso: this.ingresso,
+            matricula: 10
+         };  
+
+         console.log(novoAluno);
+
+         this.fecharModal(); 
         
     }
 
@@ -59,5 +76,11 @@ export class ListarAlunosComponent implements OnInit{
         label: 'Cancelar',
         danger: true
     };
+
+    selecionarIngresso(event){
+        console.log();
+        this.ingresso = event;
+        
+    }
     
 }
