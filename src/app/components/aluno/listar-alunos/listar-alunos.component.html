@@ -1,0 +1,10 @@
+<po-page-default>
+    <h2>Alunos Cadastrados</h2>
+    <ul style="list-style-type: none">
+        <li *ngFor="let aluno of alunos">
+            <app-aluno [nome]="aluno.nome"></app-aluno>
+        </li>
+    </ul>
+    <po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
+    <po-button p-label="Concluir" (p-click)="finalizarTurma()"></po-button>
+</po-page-default>

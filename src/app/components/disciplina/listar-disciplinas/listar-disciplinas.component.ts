@@ -19,4 +19,8 @@ export class ListarDisciplinasComponents implements OnInit{
     cancelar(){
         this.router.navigateByUrl('cadastrar-turma');
     }
+
+    proximo(){
+        this.router.navigateByUrl('listar-alunos');
+    }
 }

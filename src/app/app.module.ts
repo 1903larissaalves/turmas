@@ -10,6 +10,8 @@ import { CadastrarTurmaComponent } from './components/turma/cadastrar-turma/cada
 import { AppRotasModule } from './app.rotas.module';
 import { ListarDisciplinasComponents } from './components/disciplina/listar-disciplinas/listar-disciplinas.component';
 import { DisciplinaComponent } from './components/disciplina/disciplina/disciplina.component';
+import { AlunoComponent } from './components/aluno/aluno/aluno.component';
+import { ListarAlunosComponent } from './components/aluno/listar-alunos/listar-alunos.component';
 
 
 
@@ -19,7 +21,9 @@ import { DisciplinaComponent } from './components/disciplina/disciplina/discipli
     HomeComponent,
     CadastrarTurmaComponent,
     DisciplinaComponent,
-    ListarDisciplinasComponents
+    ListarDisciplinasComponents,
+    AlunoComponent,
+    ListarAlunosComponent
   ],
   imports: [
     BrowserModule,
