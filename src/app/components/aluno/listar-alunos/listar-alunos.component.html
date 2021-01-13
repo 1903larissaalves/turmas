@@ -12,6 +12,7 @@
         [p-primary-action]="confirmar" 
         [p-secondary-action]="close">
         <form #optionsForm="ngForm" [formGroup]="alunoForm">
+            <label>Número matricula: {{ numeroMatricula }}</label>
             <po-input formControlName="nome" name="nome" p-label="Nome Completo:"></po-input>
             <po-select
                 formControlName="ingresso"

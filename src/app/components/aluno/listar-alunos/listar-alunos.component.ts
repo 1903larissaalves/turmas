@@ -14,6 +14,7 @@ export class ListarAlunosComponent implements OnInit{
 
     alunoForm: FormGroup;
     ingresso: string;
+    numeroMatricula: number;
 
     @ViewChild('optionsForm', { static: true }) form: NgForm;
     
@@ -30,6 +31,8 @@ export class ListarAlunosComponent implements OnInit{
             nome:[''],
             ingresso:['']
         });
+        let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
+        this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
     }
 
     cancelar(){
@@ -48,7 +51,7 @@ export class ListarAlunosComponent implements OnInit{
         let novoAluno = {
             nome:  this.alunoForm.get('nome').value,
             ingresso: this.ingresso,
-            matricula: 10
+            matricula: this.numeroMatricula
          };  
 
          this.alunoService.adicionarNovoAluno(novoAluno);
@@ -80,7 +83,6 @@ export class ListarAlunosComponent implements OnInit{
     };
 
     selecionarIngresso(event){
-        console.log();
         this.ingresso = event;
         
     }
