@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
+
 import { AlunoService } from '../Aluno.service';
 
 @Component({
@@ -44,12 +45,13 @@ export class ListarAlunosComponent implements OnInit{
     }
 
     cadastrarAluno(){
-        console.log("entrou no cadastrar");
         let novoAluno = {
             nome:  this.alunoForm.get('nome').value,
             ingresso: this.ingresso,
             matricula: 10
          };  
+
+         this.alunoService.adicionarNovoAluno(novoAluno);
 
          console.log(novoAluno);
 

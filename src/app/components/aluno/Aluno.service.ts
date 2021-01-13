@@ -5,8 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class AlunoService{
 
+
     listarAlunos(){
         return this.alunos;
+    }
+
+    adicionarNovoAluno(aluno){
+        this.alunos.push(aluno);
     }
 
     alunos = [
