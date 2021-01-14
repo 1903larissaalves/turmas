@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoSelectOption } from '@po-ui/ng-components';
 import { ProfessorService } from '../../professor/professor.service';
+import { DisciplinaService } from '../disciplina.service';
 
 
 @Component({
@@ -12,25 +14,45 @@ export class CadastrarDisciplinasComponent implements OnInit{
     listaProfessores: any[] = [];
     professores: PoSelectOption[] = [];
 
-    constructor(private router: Router, private professorService: ProfessorService){}
+    disciplinasForm: FormGroup;
+
+    constructor(private router: Router, private professorService: ProfessorService,
+                 private formBuilder: FormBuilder,
+                 private disciplinaService: DisciplinaService){}
 
     ngOnInit(): void {
+
+        this.disciplinasForm = this.formBuilder.group({
+            nome: [''],
+            professor: [''],
+            cargaHoraria: ['']
+        })
+
         this.listaProfessores = this.professorService.listarProfessores();
 
         this.listaProfessores.map(professor =>{
             this.professores = [
                 ... this.professores, 
-                { label: professor.nome, value: professor.nome }
+                { label: professor.nome, value: professor.id }
             ]
         });
     }
 
-    cancelar(){
-        this.router.navigateByUrl('listar-disciplinas')
+    cadastrarDisciplina(){
+        
+        let disciplina = {
+            nome: this.disciplinasForm.get('nome').value,
+            professor: this.disciplinasForm.get('professor').value,
+            cargaHoraria: this.disciplinasForm.get('cargaHoraria').value
+        }
+
+        this.disciplinaService.cadastrarDisciplina(disciplina);
+        this.router.navigateByUrl('listar-disciplinas');
+  
     }
 
-    proximo(){
-        this.router.navigateByUrl('listar-alunos')
+    cancelar(){
+        this.router.navigateByUrl('listar-disciplinas')
     }
 
     adicionarProfessor(){

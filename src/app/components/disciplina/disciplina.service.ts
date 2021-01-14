@@ -9,6 +9,10 @@ export class DisciplinaService{
         return this.disciplinas;
     }
 
+    cadastrarDisciplina(disciplina){
+        this.disciplinas.push(disciplina);
+    }
+
     disciplinas =[
         {
             nome: 'Matemática',

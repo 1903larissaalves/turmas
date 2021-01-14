@@ -2,11 +2,12 @@
     <h2>Cadastrar novo professor</h2>
     <po-input p-label="Nome professor:"></po-input>
     <po-select
-        name="Professor"
-        p-label="Professor:"
+        name="titulo"
+        p-label="Título:"
         [p-options]="[
-            { label: 'Option 1', value: '1' },
-            { label: 'Option 2', value: '2' }
+            { label: 'Mestre', value: '1' },
+            { label: 'Doutor', value: '2' },
+            { label: 'PHD', value: '3' }
         ]">
     </po-select>
     <po-button p-label="Cancelar"(p-click)="cancelar()"></po-button>

@@ -1,15 +1,18 @@
 <po-page-default>
     <h2>Cadastrar nova disciplina</h2>
-    <po-input p-label="Nome disciplina:"></po-input>
-    <div>
-        <po-select
-            name="Professor"
-            p-label="Professor:"
-            [p-options]="professores">
-        </po-select>
-        <po-button p-label="Adicionar" (p-click)="adicionarProfessor()"></po-button>
-    </div>
-    <po-input p-label="Carga Horaria:"></po-input>
-    <po-button p-label="Cancelar"(p-click)="cancelar()"></po-button>
-    <po-button p-label="Próximo" (p-click)="proximo()"></po-button>
+    <form [formGroup]="disciplinasForm">
+        <po-input p-label="Nome disciplina:" formControlName="nome"></po-input>
+        <div>
+            <po-select
+                formControlName="professor"
+                name="Professor"
+                p-label="Professor:"
+                [p-options]="professores">
+            </po-select>
+            <po-button p-label="Adicionar" (p-click)="adicionarProfessor()"></po-button>
+        </div>
+        <po-input formControlName="cargaHoraria" p-label="Carga Horaria:"></po-input>
+        <po-button p-label="Cancelar"(p-click)="cancelar()"></po-button>
+        <po-button p-label="Concluir" (p-click)="cadastrarDisciplina()"></po-button>
+    </form>
 </po-page-default>
