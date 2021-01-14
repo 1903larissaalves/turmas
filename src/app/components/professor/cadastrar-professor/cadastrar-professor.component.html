@@ -1,0 +1,15 @@
+<po-page-default>
+    <h2>Cadastrar novo professor</h2>
+    <po-input p-label="Nome professor:"></po-input>
+    <po-select
+        name="Professor"
+        p-label="Professor:"
+        [p-options]="[
+            { label: 'Option 1', value: '1' },
+            { label: 'Option 2', value: '2' }
+        ]">
+    </po-select>
+    <po-button p-label="Cancelar"(p-click)="cancelar()"></po-button>
+    <po-button p-label="Próximo" (p-click)="proximo()"></po-button>
+    
+</po-page-default>

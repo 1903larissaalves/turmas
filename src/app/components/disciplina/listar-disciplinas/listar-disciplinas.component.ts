@@ -25,6 +25,10 @@ export class ListarDisciplinasComponents implements OnInit{
         this.router.navigateByUrl('listar-alunos');
     }
 
+    adicionarDisciplina(){
+        this.router.navigateByUrl('cadastrar-disciplina');
+    }
+
     eventoLista(disciplina) {
         for (let index = 0; index < this.disciplinas.length; index++) {
             const disciplinaDisponivel = this.disciplinas[index];

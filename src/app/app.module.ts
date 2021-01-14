@@ -13,6 +13,8 @@ import { DisciplinaComponent } from './components/disciplina/disciplina/discipli
 import { AlunoComponent } from './components/aluno/aluno/aluno.component';
 import { ListarAlunosComponent } from './components/aluno/listar-alunos/listar-alunos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CadastrarDisciplinasComponent } from './components/disciplina/cadastrar-disciplina/cadastrar-disciplinas.component';
+import { CadastrarProfessorComponent } from './components/professor/cadastrar-professor/cadastrar-professor.component';
 
 
 
@@ -24,7 +26,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DisciplinaComponent,
     ListarDisciplinasComponents,
     AlunoComponent,
-    ListarAlunosComponent
+    ListarAlunosComponent,
+    ListarDisciplinasComponents,
+    CadastrarDisciplinasComponent,
+    CadastrarProfessorComponent
   ],
   imports: [
     BrowserModule,
