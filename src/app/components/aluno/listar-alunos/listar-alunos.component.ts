@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
+import { TurmaService } from '../../turma/turma.service';
 
 import { AlunoService } from '../Aluno.service';
 
@@ -22,6 +23,7 @@ export class ListarAlunosComponent implements OnInit{
     @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
 
     constructor(private alunoService: AlunoService,
+                private turmaService: TurmaService,
                 private router: Router, 
                 private formBuilder: FormBuilder){}
 
@@ -41,7 +43,11 @@ export class ListarAlunosComponent implements OnInit{
     }
 
     finalizarTurma(){
-        this.router.navigateByUrl('');
+        if(this.turmaService.turma.vagas < this.alunosSelecionados.length){
+            alert("Número de alunos selecionados maior que vagas disponiveis");
+        }else{
+            this.router.navigateByUrl('');
+        }
     }
 
     openQuestionnaire() {
