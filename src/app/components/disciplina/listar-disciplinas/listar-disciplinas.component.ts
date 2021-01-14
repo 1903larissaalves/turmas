@@ -22,7 +22,11 @@ export class ListarDisciplinasComponents implements OnInit{
     }
 
     proximo(){
-        this.router.navigateByUrl('listar-alunos');
+        if(this.disciplinasSelecionadas.length <= 0){
+            alert("Uma turma tem que ter pelo menos uma disciplina");
+        }else{
+            this.router.navigateByUrl('listar-alunos');
+        }
     }
 
     adicionarDisciplina(){
@@ -33,7 +37,7 @@ export class ListarDisciplinasComponents implements OnInit{
         for (let index = 0; index < this.disciplinas.length; index++) {
             const disciplinaDisponivel = this.disciplinas[index];
             
-            if (disciplinaDisponivel.disc == disciplina.disciplina) {
+            if (disciplinaDisponivel.nome == disciplina.disciplina) {
                 
                 if (disciplina.selecionada ==  true) {
                     this.disciplinasSelecionadas.push(disciplinaDisponivel);
@@ -43,7 +47,5 @@ export class ListarDisciplinasComponents implements OnInit{
                 }
             }
         }
-        console.log(disciplina);
-        
     }
 }

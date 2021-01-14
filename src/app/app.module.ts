@@ -9,6 +9,7 @@ import { DisciplinaModule } from './components/disciplina/disciplina.module';
 import { AlunoModule } from './components/aluno/aluno.module';
 import { TurmaModule } from './components/turma/turma.module';
 import { ProfessorModule } from './components/professor/professor.module';
+import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 
 
 
@@ -24,7 +25,9 @@ import { ProfessorModule } from './components/professor/professor.module';
     TurmaModule,
     DisciplinaModule, 
     ProfessorModule,
-    AlunoModule
+    AlunoModule,
+    PoModule,
+    PoButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
