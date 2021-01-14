@@ -5,10 +5,7 @@
         <po-select
             name="Professor"
             p-label="Professor:"
-            [p-options]="[
-                { label: 'Option 1', value: '1' },
-                { label: 'Option 2', value: '2' }
-            ]">
+            [p-options]="professores">
         </po-select>
         <po-button p-label="Adicionar" (p-click)="adicionarProfessor()"></po-button>
     </div>
