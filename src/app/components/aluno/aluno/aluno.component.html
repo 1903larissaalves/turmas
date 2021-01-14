@@ -1,3 +1,4 @@
 <div>
-    <po-checkbox name="alunos" [p-label]="nome"></po-checkbox>
+    <po-checkbox name="alunos" [p-label]="nome" 
+    (p-change)="alterarSelecao($event)"></po-checkbox>
 </div>

@@ -11,6 +11,7 @@ import { AlunoService } from '../Aluno.service';
 export class ListarAlunosComponent implements OnInit{
 
     alunos: any[] = [];
+    alunosSelecionados: any[] = [];
 
     alunoForm: FormGroup;
     ingresso: string;
@@ -59,6 +60,25 @@ export class ListarAlunosComponent implements OnInit{
          console.log(novoAluno);
 
          this.fecharModal(); 
+        
+    }
+
+    eventoLista(aluno) {
+        for (let index = 0; index < this.alunos.length; index++) {
+            const alunoDisponivel = this.alunos[index];
+            
+            if (alunoDisponivel.nome == aluno.nome) {
+                
+                if (aluno.selecionada ==  true) {
+                    this.alunosSelecionados.push(alunoDisponivel);
+                    break;
+                } else {
+                    let posicaoNaLista = this.alunosSelecionados.indexOf(alunoDisponivel);
+                    this.alunosSelecionados.splice(posicaoNaLista, 1);
+                }
+            }
+        }
+        console.log(this.alunosSelecionados);
         
     }
 

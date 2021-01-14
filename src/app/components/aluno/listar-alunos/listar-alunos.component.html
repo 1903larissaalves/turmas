@@ -2,7 +2,7 @@
     <h2>Alunos Cadastrados</h2>
     <ul style="list-style-type: none">
         <li *ngFor="let aluno of alunos">
-            <app-aluno [nome]="aluno.nome"></app-aluno>
+            <app-aluno [nome]="aluno.nome"  (eventoAluno)="eventoLista($event)"></app-aluno>
         </li>
     </ul>
     <po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
