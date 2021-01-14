@@ -1,7 +1,8 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoSelectOption } from '@po-ui/ng-components';
+
 import { ProfessorService } from '../../professor/professor.service';
 import { DisciplinaService } from '../disciplina.service';
 
