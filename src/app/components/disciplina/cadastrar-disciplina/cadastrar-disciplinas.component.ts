@@ -33,9 +33,12 @@ export class CadastrarDisciplinasComponent implements OnInit{
         this.listaProfessores.map(professor =>{
             this.professores = [
                 ... this.professores, 
-                { label: professor.nome, value: professor.id }
+                { label: professor.nome, value: professor.nome }
             ]
         });
+
+        console.log(this.listaProfessores);
+        
     }
 
     cadastrarDisciplina(){

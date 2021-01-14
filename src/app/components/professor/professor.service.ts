@@ -10,6 +10,10 @@ export class ProfessorService{
         return this.professores;
     }
 
+    cadastrarNovoProfessor(professor){
+        this.professores.push(professor);
+    }
+
     professores = [
         {
             id: 1,
