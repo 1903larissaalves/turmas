@@ -1,5 +1,12 @@
 <div class="po-wrapper">
   <po-toolbar t-title="AppName"></po-toolbar>
   <po-menu [p-menus]="menus"></po-menu>
-  <router-outlet></router-outlet>
+  <po-page-default>
+    <po-stepper>
+      <po-step p-label="Step 1"></po-step>
+      <po-step p-label="Step 2"></po-step>
+      <po-step p-label="Step 3"></po-step>
+    </po-stepper>
+    <router-outlet></router-outlet>
+  </po-page-default>
 </div>

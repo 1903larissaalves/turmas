@@ -1,18 +1,16 @@
-<po-page-default>
-    <form [formGroup]="professorForm">
-        <h2>Cadastrar novo professor</h2>
-        <po-input p-label="Nome professor:" formControlName="nome"></po-input>
-        <po-select
-            formControlName="titulo"
-            name="titulo"
-            p-label="Título:"
-            [p-options]="[
-                { label: 'Mestre', value: 'mestre' },
-                { label: 'Doutor', value: 'doutor' },
-                { label: 'PHD', value: 'phd' }
-            ]">
-        </po-select>
-        <po-button p-label="Cancelar"(p-click)="cancelar()"></po-button>
-        <po-button p-label="Próximo" (p-click)="cadastrarNovoProfessor()"></po-button>
-    </form>
-</po-page-default>
+<form [formGroup]="professorForm">
+    <h2>Cadastrar novo professor</h2>
+    <po-input p-label="Nome professor:" formControlName="nome"></po-input>
+    <po-select
+        formControlName="titulo"
+        name="titulo"
+        p-label="Título:"
+        [p-options]="[
+            { label: 'Mestre', value: 'mestre' },
+            { label: 'Doutor', value: 'doutor' },
+            { label: 'PHD', value: 'phd' }
+        ]">
+    </po-select>
+    <po-button p-label="Cancelar"(p-click)="cancelar()"></po-button>
+    <po-button p-label="Próximo" (p-click)="cadastrarNovoProfessor()"></po-button>
+</form>

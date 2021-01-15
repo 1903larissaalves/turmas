@@ -1,33 +1,29 @@
-<po-page-default>
-    <h2>Alunos Cadastrados</h2>
-    <ul style="list-style-type: none">
-        <li *ngFor="let aluno of alunos">
-            <app-aluno [nome]="aluno.nome"  (eventoAluno)="eventoLista($event)"></app-aluno>
-        </li>
-    </ul>
-    <po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
-    
-    <po-modal 
-        p-title="Cadastrar novo aluno" 
-        [p-primary-action]="confirmar" 
-        [p-secondary-action]="close">
-        <form #optionsForm="ngForm" [formGroup]="alunoForm">
-            <label>Número matricula: {{ numeroMatricula }}</label>
-            <po-input formControlName="nome" name="nome" p-label="Nome Completo:"></po-input>
-            <po-select
-                formControlName="ingresso"
-                (p-change)="selecionarIngresso($event)"
-                name="select"
-                p-label="Ingresso:"
-                [p-options]="[
-                    { label: 'Vestibular', value: 'vestibular' },
-                    { label: 'Enade', value: 'enade' }
-                ]">
-            </po-select>          
-        </form>
-    </po-modal>
-    <po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>     
-    <po-button p-label="Concluir" (p-click)="finalizarTurma()"></po-button>
+<h2>Alunos Cadastrados</h2>
+<ul style="list-style-type: none">
+    <li *ngFor="let aluno of alunos">
+        <app-aluno [nome]="aluno.nome"  (eventoAluno)="eventoLista($event)"></app-aluno>
+    </li>
+</ul>
+<po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
 
-
-</po-page-default>
+<po-modal 
+    p-title="Cadastrar novo aluno" 
+    [p-primary-action]="confirmar" 
+    [p-secondary-action]="close">
+    <form #optionsForm="ngForm" [formGroup]="alunoForm">
+        <label>Número matricula: {{ numeroMatricula }}</label>
+        <po-input formControlName="nome" name="nome" p-label="Nome Completo:"></po-input>
+        <po-select
+            formControlName="ingresso"
+            (p-change)="selecionarIngresso($event)"
+            name="select"
+            p-label="Ingresso:"
+            [p-options]="[
+                { label: 'Vestibular', value: 'vestibular' },
+                { label: 'Enade', value: 'enade' }
+            ]">
+        </po-select>          
+    </form>
+</po-modal>
+<po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>     
+<po-button p-label="Concluir" (p-click)="finalizarTurma()"></po-button>
