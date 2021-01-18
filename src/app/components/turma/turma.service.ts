@@ -9,7 +9,9 @@ export class TurmaService{
         numero,
         ano,
         periodo,
-        vagas
+        vagas, 
+        disciplinas,
+        alunos
     }
 
     iniciarNovaTurma(){
@@ -17,8 +19,18 @@ export class TurmaService{
             numero: '',
             ano: '',
             periodo: '',
-            vagas: ''
+            vagas: '',
+            disciplinas: [],
+            alunos: []
         }
+    }
+
+    adicionarDisciplinasTurma(disciplinas){
+        this.turma.disciplinas = disciplinas;
+
+        console.log(this.turma);
+        
+
     }
 
     adicionarInformacoesTurma(numero, ano, periodo, vagas){

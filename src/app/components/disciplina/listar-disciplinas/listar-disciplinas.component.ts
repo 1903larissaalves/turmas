@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TurmaService } from '../../turma/turma.service';
 import { DisciplinaService } from '../disciplina.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class ListarDisciplinasComponents implements OnInit{
     disciplinasSelecionadas: any[] = [];
 
     constructor(private disciplinaService: DisciplinaService,
+                private turmaService: TurmaService,
                 private router: Router){}
 
     ngOnInit(): void {
@@ -25,6 +27,7 @@ export class ListarDisciplinasComponents implements OnInit{
         if(this.disciplinasSelecionadas.length <= 0){
             alert("Uma turma tem que ter pelo menos uma disciplina");
         }else{
+            this.turmaService.adicionarDisciplinasTurma(this.disciplinasSelecionadas);
             this.router.navigateByUrl('listar-alunos');
         }
     }
