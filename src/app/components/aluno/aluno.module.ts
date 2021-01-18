@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 
 import { AlunoComponent } from './aluno/aluno.component';
+import { CadastrarAlunoComponent } from './cadastrar-aluno/cadastrar-aluno.component';
 import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
 
 
@@ -11,6 +12,7 @@ import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
     declarations:[
         AlunoComponent,
         ListarAlunosComponent,
+        CadastrarAlunoComponent
     ],
     imports:[
         CommonModule,
