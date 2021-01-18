@@ -25,7 +25,7 @@ export class CadastrarDisciplinasComponent implements OnInit{
 
         this.disciplinasForm = this.formBuilder.group({
             nome: ['', Validators.required],
-            professor: [{}, Validators.required],
+            professor: ['', Validators.required],
             cargaHoraria: ['', Validators.required]
         })
 
