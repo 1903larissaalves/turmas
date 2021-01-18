@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoSelectOption } from '@po-ui/ng-components';
 
@@ -24,9 +24,9 @@ export class CadastrarDisciplinasComponent implements OnInit{
     ngOnInit(): void {
 
         this.disciplinasForm = this.formBuilder.group({
-            nome: [''],
-            professor: [''],
-            cargaHoraria: ['']
+            nome: ['', Validators.required],
+            professor: ['', Validators.required],
+            cargaHoraria: ['', Validators.required]
         })
 
         this.listaProfessores = this.professorService.listarProfessores();

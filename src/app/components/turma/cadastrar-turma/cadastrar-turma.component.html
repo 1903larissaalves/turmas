@@ -1,22 +1,48 @@
 <div> 
     <h2>Cadastrar Turma</h2>
     <form [formGroup]="turmaForm">
-        <po-input name="numeroTurma" p-label="Número turma:" formControlName="numero"></po-input>
-        <po-input name="ano" p-label="Ano:" formControlName="ano"></po-input>
-        <po-select
-            (p-change)="selecionarPeriodo($event)"
-            formControlName="periodo"
-            name="select"
-            p-label="Período Letivo:"
-            [p-options]="[
-                { label: '1° Trimestre', value: '1° Trimestre' },
-                { label: '2° Trimestre', value: '2° Trimestre' },
-                { label: '3° Trimestre', value: '3° Trimestre' }
-            ]">
-        </po-select>
-        <po-input name="vagas" p-label="Vagas:" formControlName="vagas"></po-input>
-        <po-button p-type="danger" p-label="Cancelar" (p-click)="cancelar()"></po-button>
-        <po-button p-type="primary" p-label="Próximo" (p-click)="criarTurma()"></po-button>
+        <div>
+            <po-input name="numeroTurma" p-label="Número turma:" formControlName="numero"></po-input>
+            <small style="color: #c64840;"
+                *ngIf="turmaForm.get('numero').errors?.required">
+                Número da disciplina é um campo obrigatório.
+            </small>
+        </div>
+        <div>
+            <po-input name="ano" p-label="Ano:" formControlName="ano"></po-input>
+            <small style="color: #c64840;"
+                *ngIf="turmaForm.get('ano').errors?.required">
+                Ano da disciplina é um campo obrigatório.
+            </small>
+        </div>
+        <div>
+            <po-select
+                (p-change)="selecionarPeriodo($event)"
+                formControlName="periodo"
+                name="select"
+                p-label="Período Letivo:"
+                [p-options]="[
+                    { label: '1° Trimestre', value: '1° Trimestre' },
+                    { label: '2° Trimestre', value: '2° Trimestre' },
+                    { label: '3° Trimestre', value: '3° Trimestre' }
+                ]">
+            </po-select>
+            <small style="color: #c64840;"
+                *ngIf="turmaForm.get('periodo').errors?.required">
+                Período da disciplina é um campo obrigatório.
+            </small>
+        </div>
+        <div>
+            <po-input name="vagas" p-label="Vagas:" formControlName="vagas"></po-input>
+            <small style="color: #c64840;"
+                *ngIf="turmaForm.get('vagas').errors?.required">
+                Vagas é um campo obrigatório.
+            </small>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <po-button p-type="danger" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+            <po-button [p-disabled]="turmaForm.invalid" p-type="primary" p-label="Próximo" (p-click)="criarTurma()"></po-button>
+        </div>
     </form>
 </div>
     

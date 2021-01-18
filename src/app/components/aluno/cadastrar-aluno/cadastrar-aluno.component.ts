@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlunoService } from '../Aluno.service';
 
@@ -19,8 +19,8 @@ export class CadastrarAlunoComponent implements OnInit{
     ngOnInit(): void {
         
         this.alunoForm = this.formBuilder.group({
-            nome:[''],
-            ingresso:['']
+            nome:['', Validators.required],
+            ingresso:['', Validators.required]
         });
         let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
         this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;

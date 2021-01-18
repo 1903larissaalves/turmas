@@ -4,6 +4,7 @@ import { TurmaService } from '../../turma/turma.service';
 import { DisciplinaService } from '../disciplina.service';
 
 @Component({
+    selector: 'app-listar-disciplinas',
     templateUrl: 'listar-disciplinas.component.html'
 })
 export class ListarDisciplinasComponents implements OnInit{

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { TurmaService } from '../turma.service';
@@ -19,10 +19,10 @@ export class CadastrarTurmaComponent implements OnInit{
 
     ngOnInit(): void {
         this.turmaForm = this.formBuilder.group({
-            numero: [''], 
-            ano:[''],
-            periodo:[''],
-            vagas:['']
+            numero: ['', Validators.required], 
+            ano:['', Validators.required],
+            periodo:['', Validators.required],
+            vagas:['', Validators.required]
           });
     }
 
@@ -49,9 +49,7 @@ export class CadastrarTurmaComponent implements OnInit{
     }
 
     selecionarPeriodo(event){
-        console.log();
         this.periodo = event;
-        
     }
 
 }

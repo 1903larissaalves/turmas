@@ -1,6 +1,12 @@
 <h2>Cadastrar nova disciplina</h2>
 <form [formGroup]="disciplinasForm">
-    <po-input p-label="Nome disciplina:" formControlName="nome"></po-input>
+    <div>
+        <po-input p-label="Nome disciplina:" formControlName="nome"></po-input>
+        <small style="color: #c64840;"
+            *ngIf="disciplinasForm.get('nome').errors?.required">
+            Nome é um campo obrigatório.
+        </small>
+    </div>
     <div>
         <po-select
             formControlName="professor"
@@ -8,9 +14,21 @@
             p-label="Professor:"
             [p-options]="professores">
         </po-select>
+        <small style="color: #c64840;"
+            *ngIf="disciplinasForm.get('professor').errors?.required">
+            Professor é um campo obrigatório.
+        </small>
         <po-button p-label="Adicionar" (p-click)="adicionarProfessor()"></po-button>
     </div>
-    <po-input formControlName="cargaHoraria" p-label="Carga Horaria:"></po-input>
-    <po-button p-type="danger" p-label="Cancelar"(p-click)="cancelar()"></po-button>
-    <po-button p-type="primary" p-label="Concluir" (p-click)="cadastrarDisciplina()"></po-button>
+    <div>
+        <po-input formControlName="cargaHoraria" p-label="Carga Horaria:"></po-input>
+        <small style="color: #c64840;"
+            *ngIf="disciplinasForm.get('cargaHoraria').errors?.required">
+            Carga horaria é um campo obrigatório.
+        </small>
+    </div>
+    <div style="display: flex; justify-content: space-between;">
+        <po-button p-type="danger" p-label="Cancelar"(p-click)="cancelar()"></po-button>
+        <po-button [p-disabled]="disciplinasForm.invalid" p-type="primary" p-label="Concluir" (p-click)="cadastrarDisciplina()"></po-button>
+    </div>
 </form>

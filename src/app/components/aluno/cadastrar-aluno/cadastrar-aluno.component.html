@@ -1,19 +1,31 @@
 <h2>Cadastrar novo aluno</h2>
 <form [formGroup]="alunoForm">
     <label>Número matricula: {{ numeroMatricula }}</label>
-    <po-input p-label="Nome aluno:" formControlName="nome"></po-input>
+    <div>
+        <po-input p-label="Nome aluno:" formControlName="nome"></po-input>
+        <small style="color: #c64840;"
+            *ngIf="alunoForm.get('nome').errors?.required">
+            Nome é um campo obrigatório.
+        </small>
+    </div>
     <div>
         <po-select
-        formControlName="ingresso"
-        (p-change)="selecionarIngresso($event)"
-        name="select"
-        p-label="Ingresso:"
-        [p-options]="[
-            { label: 'Vestibular', value: 'vestibular' },
-            { label: 'Enade', value: 'enade' }
-        ]">
-    </po-select>  
+            formControlName="ingresso"
+            (p-change)="selecionarIngresso($event)"
+            name="select"
+            p-label="Ingresso:"
+            [p-options]="[
+                { label: 'Vestibular', value: 'vestibular' },
+                { label: 'Enade', value: 'enade' }
+            ]">
+        </po-select>  
+        <small style="color: #c64840;"
+            *ngIf="alunoForm.get('ingresso').errors?.required">
+            Ingresso é um campo obrigatório.
+        </small>
     </div>
-    <po-button p-type="danger" p-label="Cancelar"(p-click)="cancelar()"></po-button>
-    <po-button p-type="primary" p-label="Concluir" (p-click)="cadastrarAluno()"></po-button>
+    <div style="display: flex; justify-content: space-between;">
+        <po-button p-type="danger" p-label="Cancelar"(p-click)="cancelar()"></po-button>
+        <po-button [p-disabled]="alunoForm.invalid" p-type="primary" p-label="Concluir" (p-click)="cadastrarAluno()"></po-button>
+    </div>
 </form>
