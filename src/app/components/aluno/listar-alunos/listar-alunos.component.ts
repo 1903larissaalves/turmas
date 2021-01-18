@@ -38,7 +38,7 @@ export class ListarAlunosComponent implements OnInit{
         this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
     }
 
-    cancelar(){
+    voltar(){
         this.router.navigateByUrl('listar-disciplinas');
     }
 
@@ -47,6 +47,7 @@ export class ListarAlunosComponent implements OnInit{
             alert("Número de alunos selecionados maior que vagas disponiveis");
         }else{
             this.turmaService.adicionarAlunosTurmas(this.alunosSelecionados);
+            this.turmaService.finalizarTurma();
             this.router.navigateByUrl('');
         }
     }

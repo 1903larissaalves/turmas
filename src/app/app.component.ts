@@ -14,14 +14,18 @@ export class AppComponent {
 
   readonly menus: Array<PoMenuItem> = [
     { 
-      label: 'Home', action: this.onClick.bind(this)
+      label: 'Home', action: this.irParaHome.bind(this)
     },
     {
-      label: 'Abertura turma', action: this.onClick.bind(this)
+      label: 'Abertura turma', action: this.irParaCadastrarTurma.bind(this)
     }
   ];
 
-  private onClick() {
+  private irParaHome(){
+    this.router.navigateByUrl('');
+  }
+
+  private irParaCadastrarTurma() {
     this.router.navigateByUrl('cadastrar-turma');
   }
 

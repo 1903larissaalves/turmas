@@ -4,6 +4,6 @@
         <app-disciplina [disciplina]="disciplina.nome" (eventoDisciplina)="eventoLista($event)" ></app-disciplina>
     </div>
 </ul>
-<po-button p-label="Cancelar" (p-click)="cancelar()"></po-button>
+<po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>
 <po-button p-label="Adicionar" (p-click)="adicionarDisciplina()"></po-button>
-<po-button class="primary" p-label="Próximo" (p-click)="proximo()"></po-button>
+<po-button p-type="primary" p-label="Próximo" (p-click)="proximo()"></po-button>

@@ -10,13 +10,15 @@ import { AlunoModule } from './components/aluno/aluno.module';
 import { TurmaModule } from './components/turma/turma.module';
 import { ProfessorModule } from './components/professor/professor.module';
 import { PoButtonModule, PoModule } from '@po-ui/ng-components';
+import { ListarTurmasComponent } from './components/turma/listar-turmas/listar-turmas.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ListarTurmasComponent
   ],
   imports: [
     BrowserModule,

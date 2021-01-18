@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TurmaService } from '../turma.service';
 
 @Component({
     selector: 'app-listar-turmas',
@@ -6,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ListarTurmasComponent{
 
-    @Input() turma = '';
+    @Input() numero = '';
 
 }

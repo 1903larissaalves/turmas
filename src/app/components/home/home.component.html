@@ -1,1 +1,6 @@
-<label>Turmas Cadastradas</label>
+<h2 *ngIf="turmas.length > 0" class="mt-4 text-center">Turmas Cadastradas</h2>
+<ul style="list-style-type: none">
+    <li *ngFor="let turma of turmas">
+        <app-listar-turmas [numero]="turma.numero"></app-listar-turmas>
+    </li>
+</ul>

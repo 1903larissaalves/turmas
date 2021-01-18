@@ -19,7 +19,7 @@ export class ListarDisciplinasComponents implements OnInit{
         this.disciplinas = this.disciplinaService.listarDisciplinas();
     }
 
-    cancelar(){
+    voltar(){
         this.router.navigateByUrl('cadastrar-turma');
     }
 

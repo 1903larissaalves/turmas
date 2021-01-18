@@ -48,6 +48,10 @@ export class TurmaService{
         this.turmas.push(this.turma);
     }
 
+    listarTurmas(){
+        return this.turmas;        
+    }
+
     turmas = [];
 
 }
