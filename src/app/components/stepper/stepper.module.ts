@@ -1,24 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { PoModule } from '@po-ui/ng-components';
 import { TurmaModule } from '../turma/turma.module';
 import { StepperComponent } from './stepper.component';
+import { StepperRoutingModule } from './stepper-routing.module';
 
 @NgModule({
-    declarations:[
+    declarations: [
         StepperComponent
     ],
-    imports:[
-        BrowserModule,
+    imports: [
         CommonModule,
         PoModule,
-        TurmaModule
+        TurmaModule,
+        StepperRoutingModule
     ],
-    exports:[
+    exports: [
         StepperComponent
     ]
 })
-export class StepperModule{
-
-}
+export class StepperModule { }

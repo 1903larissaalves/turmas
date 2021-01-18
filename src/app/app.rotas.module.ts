@@ -7,7 +7,6 @@ import { CadastrarDisciplinasComponent } from './components/disciplina/cadastrar
 import { ListarDisciplinasComponents } from './components/disciplina/listar-disciplinas/listar-disciplinas.component';
 import { HomeComponent } from './components/home/home.component';
 import { CadastrarProfessorComponent } from './components/professor/cadastrar-professor/cadastrar-professor.component';
-import { StepperComponent } from './components/stepper/stepper.component';
 import { CadastrarTurmaComponent } from './components/turma/cadastrar-turma/cadastrar-turma.component';
 import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 
@@ -18,10 +17,8 @@ const rotas: Routes = [
         component: HomeComponent
     },
     {
-        
         path: 'stepper',
         loadChildren: () => import('./components/stepper/stepper.module').then(m => m.StepperModule),
-        
     },
     {
         path: 'cadastrar-turma',
@@ -50,16 +47,13 @@ const rotas: Routes = [
     {
         path: '**',
         component: PaginaNaoEncontradaComponent
-    },
-    
+    }
 ]
 
 @NgModule({
-    imports:[
-        RouterModule.forRoot(rotas)
-    ],
-    exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(rotas, { useHash: true })],
+    exports: [RouterModule]
 })
-export class AppRotasModule{
+export class AppRotasModule {
 
 }
