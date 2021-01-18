@@ -8,6 +8,7 @@ import { ListarDisciplinasComponents } from './components/disciplina/listar-disc
 import { HomeComponent } from './components/home/home.component';
 import { CadastrarProfessorComponent } from './components/professor/cadastrar-professor/cadastrar-professor.component';
 import { CadastrarTurmaComponent } from './components/turma/cadastrar-turma/cadastrar-turma.component';
+import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 
 
 const rotas: Routes = [
@@ -38,6 +39,10 @@ const rotas: Routes = [
     {
         path: 'cadastrar-aluno',
         component: CadastrarAlunoComponent
+    },
+    {
+        path: '**',
+        component: PaginaNaoEncontradaComponent
     }
 ]
 

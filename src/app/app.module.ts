@@ -11,6 +11,7 @@ import { TurmaModule } from './components/turma/turma.module';
 import { ProfessorModule } from './components/professor/professor.module';
 import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 import { ListarTurmasComponent } from './components/turma/listar-turmas/listar-turmas.component';
+import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 
 
 
@@ -18,7 +19,8 @@ import { ListarTurmasComponent } from './components/turma/listar-turmas/listar-t
   declarations: [
     AppComponent,
     HomeComponent,
-    ListarTurmasComponent
+    ListarTurmasComponent,
+    PaginaNaoEncontradaComponent
   ],
   imports: [
     BrowserModule,
