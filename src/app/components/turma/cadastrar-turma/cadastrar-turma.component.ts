@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TurmaService } from '../turma.service';
 
 @Component({
+    selector: 'app-cadastrar-turma',
     templateUrl:'cadastrar-turma.component.html'
 })
 export class CadastrarTurmaComponent implements OnInit{

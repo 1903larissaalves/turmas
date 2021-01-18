@@ -13,6 +13,8 @@ import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 import { ListarTurmasComponent } from './components/turma/listar-turmas/listar-turmas.component';
 import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 import { MensagemErroModule } from './components/shared/mensagem-erro/mensagem-erro.module';
+import { StepperModule } from './components/stepper/stepper.module';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MensagemErroModule } from './components/shared/mensagem-erro/mensagem-e
     ProfessorModule,
     AlunoModule,
     PoModule,
-    PoButtonModule
+    PoButtonModule,
+    StepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

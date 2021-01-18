@@ -18,6 +18,9 @@ import { CadastrarTurmaComponent } from './cadastrar-turma/cadastrar-turma.compo
         FormsModule,
         ReactiveFormsModule, 
         MensagemErroModule
+    ], 
+    exports:[
+        CadastrarTurmaComponent
     ]
 })
 export class TurmaModule{
