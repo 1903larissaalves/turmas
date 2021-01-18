@@ -46,6 +46,7 @@ export class ListarAlunosComponent implements OnInit{
         if(this.turmaService.turma.vagas < this.alunosSelecionados.length){
             alert("Número de alunos selecionados maior que vagas disponiveis");
         }else{
+            this.turmaService.adicionarAlunosTurmas(this.alunosSelecionados);
             this.router.navigateByUrl('');
         }
     }

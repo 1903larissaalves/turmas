@@ -27,10 +27,12 @@ export class TurmaService{
 
     adicionarDisciplinasTurma(disciplinas){
         this.turma.disciplinas = disciplinas;
-
         console.log(this.turma);
-        
+    }
 
+    adicionarAlunosTurmas(alunos){
+        this.turma.alunos = alunos;
+        console.log(this.turma);
     }
 
     adicionarInformacoesTurma(numero, ano, periodo, vagas){
