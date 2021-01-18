@@ -2,10 +2,10 @@
     <h2>Cadastrar novo professor</h2>
     <div>
         <po-input p-label="Nome professor:" formControlName="nome"></po-input>
-        <small style="color: #c64840;"
-            *ngIf="professorForm.get('nome').errors?.required">
-            Professor é um campo obrigatório
-        </small>
+        <app-mensagem-erro 
+            *ngIf="professorForm.get('nome').errors?.required"
+            texto="Professor é um campo obrigatório">
+        </app-mensagem-erro>
     </div>
     <div>
         <po-select
@@ -18,10 +18,10 @@
                 { label: 'PHD', value: 'phd' }
             ]">
         </po-select>
-        <small style="color: #c64840;"
-            *ngIf="professorForm.get('titulo').errors?.required">
-            Título é um campo obrigatório
-        </small>
+        <app-mensagem-erro 
+            *ngIf="professorForm.get('titulo').errors?.required"
+            texto="Título é um campo obrigatório">
+        </app-mensagem-erro>
     </div>
     <div style="display: flex; justify-content: space-between;">
         <po-button p-type="danger"  p-label="Cancelar"(p-click)="cancelar()"></po-button>

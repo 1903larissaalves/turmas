@@ -12,8 +12,7 @@ import { ProfessorModule } from './components/professor/professor.module';
 import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 import { ListarTurmasComponent } from './components/turma/listar-turmas/listar-turmas.component';
 import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
-
-
+import { MensagemErroModule } from './components/shared/mensagem-erro/mensagem-erro.module';
 
 @NgModule({
   declarations: [

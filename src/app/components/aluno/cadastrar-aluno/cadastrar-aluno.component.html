@@ -3,10 +3,10 @@
     <label>Número matricula: {{ numeroMatricula }}</label>
     <div>
         <po-input p-label="Nome aluno:" formControlName="nome"></po-input>
-        <small style="color: #c64840;"
-            *ngIf="alunoForm.get('nome').errors?.required">
-            Nome é um campo obrigatório.
-        </small>
+        <app-mensagem-erro
+            *ngIf="alunoForm.get('nome').errors?.required"
+            texto="Nome é um campo obrigatório.">
+        </app-mensagem-erro>
     </div>
     <div>
         <po-select
@@ -19,10 +19,10 @@
                 { label: 'Enade', value: 'enade' }
             ]">
         </po-select>  
-        <small style="color: #c64840;"
-            *ngIf="alunoForm.get('ingresso').errors?.required">
-            Ingresso é um campo obrigatório.
-        </small>
+        <app-mensagem-erro
+            *ngIf="alunoForm.get('ingresso').errors?.required"
+            texto="Ingresso é um campo obrigatório.">
+        </app-mensagem-erro>
     </div>
     <div style="display: flex; justify-content: space-between;">
         <po-button p-type="danger" p-label="Cancelar"(p-click)="cancelar()"></po-button>
