@@ -4,9 +4,43 @@
         <app-disciplina [disciplina]="disciplina.nome" (eventoDisciplina)="eventoLista($event)" ></app-disciplina>
     </div>
 </ul>
+<po-modal p-title="Adicionar disciplina" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
+    <form #optionsForm="ngForm" [formGroup]="disciplinasForm">
+        <div>
+            <po-input p-label="Nome disciplina:" formControlName="nome"></po-input>
+            <app-mensagem-erro
+                *ngIf="disciplinasForm.get('nome').errors?.required"
+                texto="Nome é um campo obrigatório.">
+            </app-mensagem-erro>
+        </div>
+        <div>
+            <po-select
+                formControlName="professor"
+                name="Professor"
+                p-label="Professor:"
+                [p-options]="professores">
+            </po-select>
+            <app-mensagem-erro
+                *ngIf="disciplinasForm.get('professor').errors?.required"
+                texto="Professor é um campo obrigatório.">
+            </app-mensagem-erro>
+            <po-button p-label="Adicionar"></po-button>
+            <!--<po-button p-label="Adicionar" (p-click)="adicionarProfessor()"></po-button>-->
+        </div>
+        <po-input
+            formControlName="cargaHoraria"
+            p-label="Carga Horaria:">
+        </po-input>
+        <app-mensagem-erro
+            *ngIf="disciplinasForm.get('cargaHoraria').errors?.required"
+            texto="Carga horaria é um campo obrigatório.">
+        </app-mensagem-erro>
+    </form>
+</po-modal>
+  
 <div style="display: flex; justify-content: space-between;">
     <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>
-    <po-button p-label="Adicionar" (p-click)="adicionarDisciplina()"></po-button>
+    <po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>
     <po-button p-type="primary" p-label="Próximo" (p-click)="proximo()"></po-button>
 </div>
     

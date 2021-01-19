@@ -22,13 +22,14 @@ export class CadastrarDisciplinasComponent implements OnInit{
                  private disciplinaService: DisciplinaService){}
 
     ngOnInit(): void {
-
+        //
         this.disciplinasForm = this.formBuilder.group({
             nome: ['', Validators.required],
             professor: ['', Validators.required],
             cargaHoraria: ['', Validators.required]
         })
 
+        //
         this.listaProfessores = this.professorService.listarProfessores();
 
         this.listaProfessores.map(professor =>{
@@ -41,7 +42,7 @@ export class CadastrarDisciplinasComponent implements OnInit{
         console.log(this.listaProfessores);
         
     }
-
+    //
     cadastrarDisciplina(){
         
         let disciplina = {
@@ -54,11 +55,11 @@ export class CadastrarDisciplinasComponent implements OnInit{
         this.router.navigateByUrl('listar-disciplinas');
   
     }
-
+    //
     cancelar(){
         this.router.navigateByUrl('listar-disciplinas')
     }
-
+    //
     adicionarProfessor(){
         this.router.navigateByUrl('cadastrar-professor')
     }
