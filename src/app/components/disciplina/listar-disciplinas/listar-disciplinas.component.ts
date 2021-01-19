@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TurmaService } from '../../turma/turma.service';
 import { DisciplinaService } from '../disciplina.service';
@@ -11,6 +11,8 @@ export class ListarDisciplinasComponents implements OnInit{
 
     disciplinas: any[] = [];
     disciplinasSelecionadas: any[] = [];
+    @Output() proximaTela = new EventEmitter<any>();
+    @Output() voltaTela = new EventEmitter<any>();
 
     constructor(private disciplinaService: DisciplinaService,
                 private turmaService: TurmaService,
@@ -21,7 +23,8 @@ export class ListarDisciplinasComponents implements OnInit{
     }
 
     voltar(){
-        this.router.navigateByUrl('cadastrar-turma');
+        this.voltarTela();
+        //this.router.navigateByUrl('cadastrar-turma');
     }
 
     proximo(){
@@ -29,7 +32,8 @@ export class ListarDisciplinasComponents implements OnInit{
             alert("Uma turma tem que ter pelo menos uma disciplina");
         }else{
             this.turmaService.adicionarDisciplinasTurma(this.disciplinasSelecionadas);
-            this.router.navigateByUrl('listar-alunos');
+            //this.router.navigateByUrl('listar-alunos');
+            this.proximoTela();
         }
     }
 
@@ -51,5 +55,13 @@ export class ListarDisciplinasComponents implements OnInit{
                 }
             }
         }
+    }
+
+    proximoTela(){
+        this.proximaTela.emit();
+    }
+    
+    voltarTela(){
+        this.voltaTela.emit();
     }
 }

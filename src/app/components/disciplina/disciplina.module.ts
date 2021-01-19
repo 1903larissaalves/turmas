@@ -21,6 +21,11 @@ import { ListarDisciplinasComponents } from './listar-disciplinas/listar-discipl
         FormsModule,
         ReactiveFormsModule,
         MensagemErroModule
+    ],
+    exports:[
+        DisciplinaComponent,
+        CadastrarDisciplinasComponent,
+        ListarDisciplinasComponents
     ]
 })
 export class DisciplinaModule{

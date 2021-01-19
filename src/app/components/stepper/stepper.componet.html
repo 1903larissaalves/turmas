@@ -1,9 +1,22 @@
 <po-page-default>
-    <po-stepper>
+    <po-stepper  #stepper>
         <po-step p-label="Turma">
-            <app-cadastrar-turma></app-cadastrar-turma>
+            <app-cadastrar-turma
+                (proximaTela)="stepper.next()"
+                (proximaTela)="stepper.previous()">
+            </app-cadastrar-turma>
         </po-step>
-        <po-step p-label="Disciplinas"></po-step>
-        <po-step p-label="Alunos"></po-step>
+        <po-step p-label="Disciplinas">
+            <app-listar-disciplinas 
+                (proximaTela)="stepper.next()"
+                (voltaTela)="stepper.previous()">
+            </app-listar-disciplinas>
+        </po-step>
+        <po-step p-label="Alunos">
+            <app-listar-alunos
+                (proximaTela)="stepper.next()"
+                (voltaTela)="stepper.previous()">
+            </app-listar-alunos>
+        </po-step>
     </po-stepper>
 </po-page-default>
