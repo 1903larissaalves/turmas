@@ -12,6 +12,8 @@ export class ProfessorService{
 
     cadastrarNovoProfessor(professor){
         this.professores.push(professor);
+        console.log(professor);
+        
     }
 
     professores = [

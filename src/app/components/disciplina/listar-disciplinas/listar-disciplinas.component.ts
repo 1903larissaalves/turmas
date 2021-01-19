@@ -13,12 +13,19 @@ import { DisciplinaService } from '../disciplina.service';
 })
 export class ListarDisciplinasComponents implements OnInit{
 
+    exibindoCadastroDisciplina: boolean = true;
+    exibindoCadastroProfessor: boolean = false;
+
+    tituloModal: string ='Cadastrar nova disciplina';
+    
     disciplinas: any[] = [];
     disciplinasSelecionadas: any[] = [];
     disciplinasForm: FormGroup;
 
     listaProfessores: any[] = [];
     professores: PoSelectOption[] = [];
+
+    professorForm: FormGroup;
 
     @Output() proximaTela = new EventEmitter<any>();
     @Output() voltaTela = new EventEmitter<any>();
@@ -31,16 +38,49 @@ export class ListarDisciplinasComponents implements OnInit{
                 private router: Router,
                 private formBuilder: FormBuilder){}
 
+
     ngOnInit(): void {
 
         this.disciplinasForm = this.formBuilder.group({
             nome: ['', Validators.required],
             professor: ['', Validators.required],
             cargaHoraria: ['', Validators.required]
-        })
+        });
+
+        this.professorForm = this.formBuilder.group({
+            nome: ['', Validators.required],
+            titulo: ['', Validators.required]
+        });
 
         this.disciplinas = this.disciplinaService.listarDisciplinas();
 
+        this.atualizarListaProfessores();
+    }
+
+    irParaCadastroProfessor(){
+        this.exibindoCadastroProfessor = true;
+        this.exibindoCadastroDisciplina = false;
+        this.tituloModal = 'Cadastrar novo professor';
+    }
+
+    voltarParaDisciplinas(){
+        this.exibindoCadastroProfessor = false;
+        this.exibindoCadastroDisciplina = true;
+        this.tituloModal ='Cadastrar nova disciplina';
+    }
+
+    cadastrarProfessor(){
+        let professor = {
+            nome: this.professorForm.get('nome').value,
+            titulo: this.professorForm.get('titulo').value
+        }
+
+        this.professorService.cadastrarNovoProfessor(professor);
+        this.atualizarListaProfessores();
+        this.voltarParaDisciplinas();
+    }
+
+    atualizarListaProfessores(){
         this.listaProfessores = this.professorService.listarProfessores();
 
         this.listaProfessores.map(professor =>{
@@ -90,9 +130,7 @@ export class ListarDisciplinasComponents implements OnInit{
             professor: this.disciplinasForm.get('professor').value,
             cargaHoraria: this.disciplinasForm.get('cargaHoraria').value
         }
-        debugger;
         this.disciplinaService.cadastrarDisciplina(disciplina);
-        this.fecharModal();
     }
 
     proximoTela(){
@@ -109,14 +147,26 @@ export class ListarDisciplinasComponents implements OnInit{
 
     confirmar: PoModalAction = {
         action: () => {
-            this.cadastrarDisciplina();
+            if (this.exibindoCadastroProfessor){
+                this.cadastrarProfessor();
+            }
+            
+            if (this.exibindoCadastroDisciplina){
+                this.cadastrarDisciplina();
+            } 
         },
         label: 'Confirmar'
     };
 
     fechar: PoModalAction = {
         action: () => {
-          this.fecharModal();
+            if (this.exibindoCadastroProfessor){
+                this.voltarParaDisciplinas();
+            }
+
+            if (this.exibindoCadastroDisciplina){
+                this.fecharModal();
+            } 
         },
         label: 'Fechar',
         danger: true
