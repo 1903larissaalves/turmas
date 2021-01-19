@@ -3,10 +3,6 @@
     <form [formGroup]="turmaForm">
         <div>
             <po-input name="numeroTurma" p-label="Número turma:" formControlName="numero"></po-input>
-            <small style="color: #c64840;"
-                >
-                
-            </small>
             <app-mensagem-erro *ngIf="turmaForm.get('numero').errors?.required"
                  texto="Número da disciplina é um campo obrigatório.">
             </app-mensagem-erro>

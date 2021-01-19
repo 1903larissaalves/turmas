@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   private irParaCadastrarTurma() {
-    this.router.navigateByUrl('cadastrar-turma');
+    this.router.navigateByUrl('stepper');
   }
 
 }

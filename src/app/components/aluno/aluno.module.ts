@@ -22,6 +22,12 @@ import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
         FormsModule,
         ReactiveFormsModule,
         MensagemErroModule
+    ], 
+    exports:[
+        AlunoComponent,
+        ListarAlunosComponent,
+        CadastrarAlunoComponent
+
     ]
 })
 export class AlunoModule{

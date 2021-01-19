@@ -17,6 +17,10 @@ const rotas: Routes = [
         component: HomeComponent
     },
     {
+        path: 'stepper',
+        loadChildren: () => import('./components/stepper/stepper.module').then(m => m.StepperModule),
+    },
+    {
         path: 'cadastrar-turma',
         component: CadastrarTurmaComponent
     },
@@ -47,11 +51,9 @@ const rotas: Routes = [
 ]
 
 @NgModule({
-    imports:[
-        RouterModule.forRoot(rotas)
-    ],
-    exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(rotas, { useHash: true })],
+    exports: [RouterModule]
 })
-export class AppRotasModule{
+export class AppRotasModule {
 
 }

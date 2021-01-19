@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
+import { PoModalComponent } from '@po-ui/ng-components';
 import { TurmaService } from '../../turma/turma.service';
 
 import { AlunoService } from '../Aluno.service';
 
 @Component({
+    selector: 'app-listar-alunos',
     templateUrl: 'listar-alunos.component.html'
 })
 export class ListarAlunosComponent implements OnInit{
@@ -14,9 +15,8 @@ export class ListarAlunosComponent implements OnInit{
     alunos: any[] = [];
     alunosSelecionados: any[] = [];
 
-    @ViewChild('optionsForm', { static: true }) form: NgForm;
-    
-    @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
+    @Output() proximaTela = new EventEmitter<any>();
+    @Output() voltaTela = new EventEmitter<any>();
 
     constructor(private alunoService: AlunoService,
                 private turmaService: TurmaService,
@@ -27,7 +27,8 @@ export class ListarAlunosComponent implements OnInit{
     }
 
     voltar(){
-        this.router.navigateByUrl('listar-disciplinas');
+        this.voltarTela();
+        //this.router.navigateByUrl('listar-disciplinas');
     }
 
     finalizarTurma(){
@@ -61,6 +62,14 @@ export class ListarAlunosComponent implements OnInit{
 
     adicionarNovoAluno(){
         this.router.navigateByUrl('cadastrar-aluno');
+    }
+
+    proximoTela(){
+        this.proximaTela.emit();
+    }
+
+    voltarTela(){
+        this.voltaTela.emit();
     }
 
     
