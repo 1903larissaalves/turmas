@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PoModalComponent } from '@po-ui/ng-components';
+import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
 import { TurmaService } from '../../turma/turma.service';
 
 import { AlunoService } from '../Aluno.service';
@@ -15,20 +15,47 @@ export class ListarAlunosComponent implements OnInit{
     alunos: any[] = [];
     alunosSelecionados: any[] = [];
 
+    alunoForm: FormGroup;
+    ingresso: string;
+    numeroMatricula: number;
+
     @Output() proximaTela = new EventEmitter<any>();
     @Output() voltaTela = new EventEmitter<any>();
 
+    
+  @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
+
     constructor(private alunoService: AlunoService,
                 private turmaService: TurmaService,
+                private formBuilder: FormBuilder, 
                 private router: Router){}
 
     ngOnInit(): void {
         this.alunos = this.alunoService.listarAlunos();
+
+        this.alunoForm = this.formBuilder.group({
+            nome:['', Validators.required],
+            ingresso:['', Validators.required]
+        });
+        let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
+        this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
+    
+    }
+
+    cadastrarAluno(){
+        let novoAluno = {
+            nome:  this.alunoForm.get('nome').value,
+            ingresso: this.ingresso,
+            matricula: this.numeroMatricula
+         };  
+
+         this.alunoService.adicionarNovoAluno(novoAluno);
+         this.closeModal();
+        
     }
 
     voltar(){
         this.voltarTela();
-        //this.router.navigateByUrl('listar-disciplinas');
     }
 
     finalizarTurma(){
@@ -59,11 +86,7 @@ export class ListarAlunosComponent implements OnInit{
         console.log(this.alunosSelecionados);
         
     }
-
-    adicionarNovoAluno(){
-        this.router.navigateByUrl('cadastrar-aluno');
-    }
-
+    
     proximoTela(){
         this.proximaTela.emit();
     }
@@ -72,5 +95,31 @@ export class ListarAlunosComponent implements OnInit{
         this.voltaTela.emit();
     }
 
+    adicionarNovoAluno() {
+        this.poModal.open();
+    }
+
+    confirmar: PoModalAction = {
+        action: () => {
+            this.cadastrarAluno();
+        },
+        label: 'Confirmar'
+    };
+
+    fechar: PoModalAction = {
+        action: () => {
+            this.closeModal();
+        },
+        label: 'Fechar',
+        danger: true
+    };
+
+    closeModal() {
+        this.poModal.close();
+    }
+
+    selecionarIngresso(event){
+        this.ingresso = event;    
+    }
     
 }

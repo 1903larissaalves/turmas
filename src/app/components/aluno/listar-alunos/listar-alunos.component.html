@@ -5,7 +5,36 @@
     </li>
 </ul>
 <div style="display: flex; justify-content: space-between;">
-    <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>
-    <po-button p-label="Adicionar" (p-click)="adicionarNovoAluno()"></po-button>
+    <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>    
+    <po-button p-label="Adicionar" (p-click)="adicionarNovoAluno()"> </po-button>
     <po-button p-type="primary" p-label="Concluir" (p-click)="finalizarTurma()"></po-button>
 </div>
+<po-modal p-title="Cadastrar novo aluno" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
+    <form #optionsForm="ngForm" [formGroup]="alunoForm">
+        <label>Número matricula: {{ numeroMatricula }}</label>
+        <div>
+            <po-input p-label="Nome aluno:" formControlName="nome"></po-input>
+            <app-mensagem-erro
+                *ngIf="alunoForm.get('nome').errors?.required"
+                texto="Nome é um campo obrigatório.">
+            </app-mensagem-erro>
+        </div>
+        <div>
+            <po-select
+                formControlName="ingresso"
+                (p-change)="selecionarIngresso($event)"
+                name="select"
+                p-label="Ingresso:"
+                [p-options]="[
+                    { label: 'Vestibular', value: 'vestibular' },
+                    { label: 'Enade', value: 'enade' }
+                ]">
+            </po-select>  
+            <app-mensagem-erro
+                *ngIf="alunoForm.get('ingresso').errors?.required"
+                texto="Ingresso é um campo obrigatório.">
+            </app-mensagem-erro>
+        </div>
+    </form>
+</po-modal>
+  
