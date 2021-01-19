@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastrarAlunoComponent } from './components/aluno/cadastrar-aluno/cadastrar-aluno.component';
 
 import { ListarAlunosComponent } from './components/aluno/listar-alunos/listar-alunos.component';
 import { CadastrarDisciplinasComponent } from './components/disciplina/cadastrar-disciplina/cadastrar-disciplinas.component';
@@ -39,10 +38,6 @@ const rotas: Routes = [
     {
         path: 'cadastrar-professor',
         component: CadastrarProfessorComponent
-    },
-    {
-        path: 'cadastrar-aluno',
-        component: CadastrarAlunoComponent
     },
     {
         path: '**',

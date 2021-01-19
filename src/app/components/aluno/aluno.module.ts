@@ -5,15 +5,13 @@ import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 import { MensagemErroModule } from '../shared/mensagem-erro/mensagem-erro.module';
 
 import { AlunoComponent } from './aluno/aluno.component';
-import { CadastrarAlunoComponent } from './cadastrar-aluno/cadastrar-aluno.component';
 import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
 
 
 @NgModule({
     declarations:[
         AlunoComponent,
-        ListarAlunosComponent,
-        CadastrarAlunoComponent
+        ListarAlunosComponent
     ],
     imports:[
         CommonModule,
@@ -25,8 +23,7 @@ import { ListarAlunosComponent } from './listar-alunos/listar-alunos.component';
     ], 
     exports:[
         AlunoComponent,
-        ListarAlunosComponent,
-        CadastrarAlunoComponent
+        ListarAlunosComponent
 
     ]
 })
