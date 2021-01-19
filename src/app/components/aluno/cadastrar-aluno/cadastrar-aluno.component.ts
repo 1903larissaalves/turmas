@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlunoService } from '../Aluno.service';
@@ -11,6 +11,9 @@ export class CadastrarAlunoComponent implements OnInit{
     alunoForm: FormGroup;
     ingresso: string;
     numeroMatricula: number;
+
+    @Output() proximaTela = new EventEmitter<any>();
+    @Output() voltaTela = new EventEmitter<any>();
 
     constructor(private alunoService: AlunoService,
                 private formBuilder: FormBuilder, 
@@ -39,10 +42,21 @@ export class CadastrarAlunoComponent implements OnInit{
     }
 
     cancelar(){
-        this.router.navigateByUrl('listar-alunos');
-    }
-    selecionarIngresso(event){
-        this.ingresso = event;
         
+        //this.router.navigateByUrl('listar-alunos');
+
+        this.voltarTela();
+    }
+
+    selecionarIngresso(event){
+        this.ingresso = event;    
+    }
+
+    proximoTela(){
+        this.proximaTela.emit();
+    }
+
+    voltarTela(){
+        this.voltaTela.emit();
     }
 }
