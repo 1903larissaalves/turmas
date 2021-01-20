@@ -22,7 +22,7 @@ export class AppComponent {
   ];
 
   private irParaHome(){
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('home');
   }
 
   private irParaCadastrarTurma() {

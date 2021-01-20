@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
-import { TurmaService } from '../../turma/turma.service';
 
+import { TurmaService } from '../../turma/turma.service';
 import { AlunoService } from '../Aluno.service';
 
 @Component({
@@ -68,7 +68,7 @@ export class ListarAlunosComponent implements OnInit{
         }else{
             this.turmaService.adicionarAlunosTurmas(this.alunosSelecionados);
             this.turmaService.finalizarTurma();
-            this.router.navigateByUrl('');
+            this.router.navigateByUrl('home');
         }
     }
 

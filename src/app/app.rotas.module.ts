@@ -12,7 +12,7 @@ import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.comp
 
 const rotas: Routes = [
     {
-        path: '',
+        path: 'home',
         component: HomeComponent
     },
     {
