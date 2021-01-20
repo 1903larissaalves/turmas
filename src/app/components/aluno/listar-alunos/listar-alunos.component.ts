@@ -63,8 +63,16 @@ export class ListarAlunosComponent implements OnInit{
     }
 
     finalizarTurma(){
+        if(this.alunosSelecionados.length > 0){
+            this.verificarVagasTurma();
+        }else{
+            alert("Uma turma tem que ter ao menos um aluno.")
+        }
+    }
+
+    verificarVagasTurma(){
         if(this.turmaService.turma.vagas < this.alunosSelecionados.length){
-            alert("Número de alunos selecionados maior que vagas disponiveis");
+            alert("Número de alunos selecionados maior que vagas disponiveis na turma.");
         }else{
             this.turmaService.adicionarAlunosTurmas(this.alunosSelecionados);
             this.turmaService.finalizarTurma();

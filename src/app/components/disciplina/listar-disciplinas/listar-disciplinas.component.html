@@ -5,7 +5,7 @@
     </div>
 </ul>
 <po-modal [p-title]="tituloModal" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
-    <form *ngIf="exibindoCadastroDisciplina" #optionsForm="ngForm" [formGroup]="disciplinasForm">
+    <form style="min-height: 300px;" *ngIf="exibindoCadastroDisciplina" #optionsForm="ngForm" [formGroup]="disciplinasForm">
         <div>
             <po-input p-label="Nome disciplina:" formControlName="nome"></po-input>
             <app-mensagem-erro
@@ -35,7 +35,7 @@
             texto="Carga horaria é um campo obrigatório.">
         </app-mensagem-erro>
     </form>
-    <form *ngIf="exibindoCadastroProfessor" [formGroup]="professorForm">
+    <form style="min-height: 300px;" *ngIf="exibindoCadastroProfessor" [formGroup]="professorForm">
         <div>
             <po-input p-label="Nome professor:" formControlName="nome"></po-input>
             <app-mensagem-erro 

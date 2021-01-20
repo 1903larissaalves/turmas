@@ -97,7 +97,7 @@ export class ListarDisciplinasComponents implements OnInit{
 
     proximo(){
         if(this.disciplinasSelecionadas.length <= 0){
-            alert("Uma turma tem que ter pelo menos uma disciplina");
+            alert("Uma turma tem que ter ao menos uma disciplina");
         }else{
             this.turmaService.adicionarDisciplinasTurma(this.disciplinasSelecionadas);
             this.proximoTela();
