@@ -20,11 +20,11 @@ export class ListarDisciplinasComponents implements OnInit{
     
     disciplinas: any[] = [];
     disciplinasSelecionadas: any[] = [];
-    disciplinasForm: FormGroup;
-
+    
     listaProfessores: any[] = [];
     professores: PoSelectOption[] = [];
-
+    
+    disciplinasForm: FormGroup;
     professorForm: FormGroup;
 
     @Output() proximaTela = new EventEmitter<any>();
@@ -149,10 +149,12 @@ export class ListarDisciplinasComponents implements OnInit{
         action: () => {
             if (this.exibindoCadastroProfessor){
                 this.cadastrarProfessor();
-            }
-            
-            if (this.exibindoCadastroDisciplina){
+                this.professorForm.reset();
+            }else{
+                this.exibindoCadastroDisciplina
                 this.cadastrarDisciplina();
+                this.fecharModal();
+                this.disciplinasForm.reset();
             } 
         },
         label: 'Confirmar'
@@ -162,13 +164,12 @@ export class ListarDisciplinasComponents implements OnInit{
         action: () => {
             if (this.exibindoCadastroProfessor){
                 this.voltarParaDisciplinas();
-            }
-
-            if (this.exibindoCadastroDisciplina){
+            }else{
+                this.exibindoCadastroDisciplina
                 this.fecharModal();
             } 
         },
-        label: 'Fechar',
+        label: 'Voltar',
         danger: true
       };
     

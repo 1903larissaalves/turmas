@@ -50,6 +50,7 @@ export class ListarAlunosComponent implements OnInit{
          };  
 
          this.alunoService.adicionarNovoAluno(novoAluno);
+         this.alunoForm.reset();
          this.closeModal();
         
     }
@@ -110,11 +111,12 @@ export class ListarAlunosComponent implements OnInit{
         action: () => {
             this.closeModal();
         },
-        label: 'Fechar',
+        label: 'Voltar',
         danger: true
     };
 
     closeModal() {
+        this.alunoForm.reset();
         this.poModal.close();
     }
 
