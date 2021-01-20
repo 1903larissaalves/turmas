@@ -9,7 +9,7 @@ export class PaginaNaoEncontradaComponent{
     constructor(private router: Router){}
 
     irParaHome(){
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('home');
     }
 
 }
