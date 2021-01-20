@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ListarAlunosComponent } from './components/aluno/listar-alunos/listar-alunos.component';
-import { CadastrarDisciplinasComponent } from './components/disciplina/cadastrar-disciplina/cadastrar-disciplinas.component';
 import { ListarDisciplinasComponents } from './components/disciplina/listar-disciplinas/listar-disciplinas.component';
 import { HomeComponent } from './components/home/home.component';
-import { CadastrarProfessorComponent } from './components/professor/cadastrar-professor/cadastrar-professor.component';
 import { CadastrarTurmaComponent } from './components/turma/cadastrar-turma/cadastrar-turma.component';
 import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 
@@ -17,7 +15,7 @@ const rotas: Routes = [
     },
     {
         path: 'stepper',
-        loadChildren: () => import('./components/stepper/stepper.module').then(m => m.StepperModule),
+        loadChildren: () => import('./components/shared/stepper/stepper.module').then(m => m.StepperModule),
     },
     {
         path: 'cadastrar-turma',
@@ -30,14 +28,6 @@ const rotas: Routes = [
     {
         path: 'listar-alunos',
         component: ListarAlunosComponent
-    },
-    {
-        path: 'cadastrar-disciplina',
-        component: CadastrarDisciplinasComponent
-    },
-    {
-        path: 'cadastrar-professor',
-        component: CadastrarProfessorComponent
     },
     {
         path: '**',
