@@ -32,14 +32,16 @@ export class ListarAlunosComponent implements OnInit{
 
     ngOnInit(): void {
         this.alunos = this.alunoService.listarAlunos();
+        this.atualizarListaAlunos();
+    }
 
+    atualizarListaAlunos(){
         this.alunoForm = this.formBuilder.group({
             nome:['', Validators.required],
             ingresso:['', Validators.required]
         });
         let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
         this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
-    
     }
 
     cadastrarAluno(){
@@ -52,6 +54,7 @@ export class ListarAlunosComponent implements OnInit{
          this.alunoService.adicionarNovoAluno(novoAluno);
          this.alunoForm.reset();
          this.closeModal();
+         this.atualizarListaAlunos();
         
     }
 
