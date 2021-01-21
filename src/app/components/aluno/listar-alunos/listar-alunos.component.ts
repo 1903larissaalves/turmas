@@ -62,15 +62,19 @@ export class ListarAlunosComponent implements OnInit{
         this.voltarTela();
     }
 
-    finalizarTurma(){
-        if(this.alunosSelecionados.length > 0){
+
+    public verificarAlunosSelecionados(){
+        let aluno: number;
+        aluno = this.alunosSelecionados.length;
+
+        if(verificarAlunosSelecionados(aluno) == true){
             this.verificarVagasTurma();
         }else{
-            alert("Uma turma tem que ter ao menos um aluno.")
+            alert("Uma turma tem que ter ao menos um aluno.");
         }
     }
 
-    verificarVagasTurma(){
+    public verificarVagasTurma(){
         if(this.turmaService.turma.vagas < this.alunosSelecionados.length){
             alert("Número de alunos selecionados maior que vagas disponiveis na turma.");
         }else{
@@ -134,5 +138,12 @@ export class ListarAlunosComponent implements OnInit{
     selecionarIngresso(event){
         this.ingresso = event;    
     }
-    
+}
+
+export function verificarAlunosSelecionados(aluno: number){
+    if(aluno > 0){
+        return true;
+    }else{
+        return false;
+    }
 }
