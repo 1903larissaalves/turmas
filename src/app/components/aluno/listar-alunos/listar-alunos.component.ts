@@ -75,7 +75,7 @@ export class ListarAlunosComponent implements OnInit{
     }
 
     public verificarVagasTurma(){
-        if(this.turmaService.turma.vagas < this.alunosSelecionados.length){
+        if(!verificarVagasTurma(this.turmaService.turma.vagas, this.alunosSelecionados.length)){
             alert("Número de alunos selecionados maior que vagas disponiveis na turma.");
         }else{
             this.turmaService.adicionarAlunosTurmas(this.alunosSelecionados);
@@ -146,4 +146,12 @@ export function verificarAlunosSelecionados(aluno: number){
     }else{
         return false;
     }
+}
+
+export function verificarVagasTurma(vagas: number, alunosSelecionados: number) {
+    if(vagas >= alunosSelecionados){
+        return true;
+    }else{
+        return false;
+    }    
 }
