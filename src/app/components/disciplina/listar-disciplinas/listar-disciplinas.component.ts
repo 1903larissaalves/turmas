@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { PoModalAction, PoModalComponent, PoSelectOption } from '@po-ui/ng-components';
 
 import { ProfessorService } from '../../professor/professor.service';
@@ -35,7 +34,6 @@ export class ListarDisciplinasComponents implements OnInit{
     constructor(private disciplinaService: DisciplinaService,
                 private professorService: ProfessorService,
                 private turmaService: TurmaService,
-                private router: Router,
                 private formBuilder: FormBuilder){}
 
 
@@ -104,10 +102,6 @@ export class ListarDisciplinasComponents implements OnInit{
         }
     }
 
-    adicionarDisciplina(){
-        this.router.navigateByUrl('cadastrar-disciplina');
-    }
-
     eventoLista(disciplina) {
         for (let index = 0; index < this.disciplinas.length; index++) {
             const disciplinaDisponivel = this.disciplinas[index];
@@ -173,7 +167,6 @@ export class ListarDisciplinasComponents implements OnInit{
         danger: true
       };
     
-
       fecharModal(){
         this.poModal.close();
     }   

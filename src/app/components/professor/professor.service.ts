@@ -5,15 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class ProfessorService{
 
-
     listarProfessores(){
         return this.professores;
     }
 
     cadastrarNovoProfessor(professor){
         this.professores.push(professor);
-        console.log(professor);
-        
     }
 
     professores = [
@@ -53,5 +50,4 @@ export class ProfessorService{
             titulo: 'PHD'
         }
     ]
-
 }

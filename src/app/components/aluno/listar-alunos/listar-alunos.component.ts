@@ -5,7 +5,6 @@ import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
 
 import { TurmaService } from '../../turma/turma.service';
 import { AlunoService } from '../Aluno.service';
-
 @Component({
     selector: 'app-listar-alunos',
     templateUrl: 'listar-alunos.component.html'
@@ -22,8 +21,7 @@ export class ListarAlunosComponent implements OnInit{
     @Output() proximaTela = new EventEmitter<any>();
     @Output() voltaTela = new EventEmitter<any>();
 
-    
-  @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
+    @ViewChild(PoModalComponent, { static: true }) poModal: PoModalComponent;
 
     constructor(private alunoService: AlunoService,
                 private turmaService: TurmaService,
@@ -40,6 +38,11 @@ export class ListarAlunosComponent implements OnInit{
             nome:['', Validators.required],
             ingresso:['', Validators.required]
         });
+
+        this.gerarNumeroMatriculaAluno();
+    }
+
+    gerarNumeroMatriculaAluno(): void{
         let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
         this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
     }
@@ -62,12 +65,8 @@ export class ListarAlunosComponent implements OnInit{
         this.voltarTela();
     }
 
-
     public verificarAlunosSelecionados(){
-        let aluno: number;
-        aluno = this.alunosSelecionados.length;
-
-        if(verificarAlunosSelecionados(aluno) == true){
+        if(verificarAlunosSelecionados(this.alunosSelecionados.length)){
             this.verificarVagasTurma();
         }else{
             alert("Uma turma tem que ter ao menos um aluno.");
@@ -84,13 +83,12 @@ export class ListarAlunosComponent implements OnInit{
         }
     }
 
-    eventoLista(aluno) {
+    eventoLista(aluno: any) {
         for (let index = 0; index < this.alunos.length; index++) {
             const alunoDisponivel = this.alunos[index];
             
             if (alunoDisponivel.nome == aluno.nome) {
-                
-                if (aluno.selecionada ==  true) {
+                if (aluno.selecionado ==  true) {
                     this.alunosSelecionados.push(alunoDisponivel);
                     break;
                 } else {
@@ -111,7 +109,7 @@ export class ListarAlunosComponent implements OnInit{
         this.voltaTela.emit();
     }
 
-    adicionarNovoAluno() {
+    adicionar() {
         this.poModal.open();
     }
 
@@ -135,7 +133,7 @@ export class ListarAlunosComponent implements OnInit{
         this.poModal.close();
     }
 
-    selecionarIngresso(event){
+    selecionarIngresso(event: any){
         this.ingresso = event;    
     }
 }

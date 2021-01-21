@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
 })
 export class MensagemValidacaoComponent{
 
-    @Input() texto = '';
+    @Input() texto: string = '';
 
 }

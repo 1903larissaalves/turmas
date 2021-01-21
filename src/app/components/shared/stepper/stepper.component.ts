@@ -1,7 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { PoModalComponent, PoStepComponent, PoStepperComponent } from '@po-ui/ng-components';
-
-
+import { Component } from '@angular/core';
 @Component({
     selector: 'app-stepper',
     templateUrl: 'stepper.componet.html'

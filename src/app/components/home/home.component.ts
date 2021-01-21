@@ -1,22 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 import { TurmaService } from '../turma/turma.service';
-
 @Component({
     selector: 'app-home',
     templateUrl: 'home.component.html'
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit{
 
     turmas: any[] = [];
 
-    constructor(private turmaService: TurmaService, private router: Router){
+    constructor(private turmaService: TurmaService){}
 
+    ngOnInit(): void {
         this.turmas = this.turmaService.listarTurmas();
-    
     }
     
-    iniciarCadastroTurma(){
-        this.router.navigateByUrl('cadastrar-turma');
-    }
 }

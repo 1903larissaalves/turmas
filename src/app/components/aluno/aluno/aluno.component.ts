@@ -9,10 +9,10 @@ export class AlunoComponent{
     @Input() nome = '';
     @Output() eventoAluno = new EventEmitter<any>();
 
-    alterarSelecao(selecionada) {
+    alterarSelecao(selecionado) {
         let aluno =  { 
             nome: this.nome, 
-            selecionada
+            selecionado
         };
 
         this.eventoAluno.emit(aluno);
