@@ -96,11 +96,11 @@ export class ListarDisciplinasComponents implements OnInit{
     }
 
     proximo(){
-        if(this.disciplinasSelecionadas.length <= 0){
-            alert("Uma turma tem que ter ao menos uma disciplina");
-        }else{
+        if(verificarPossuiDisciplinasSelecionadas(this.disciplinasSelecionadas.length)){
             this.turmaService.adicionarDisciplinasTurma(this.disciplinasSelecionadas);
             this.proximoTela();
+        }else{
+            alert("Uma turma tem que ter ao menos uma disciplina");
         }
     }
 
@@ -177,4 +177,12 @@ export class ListarDisciplinasComponents implements OnInit{
       fecharModal(){
         this.poModal.close();
     }   
+}
+
+export function verificarPossuiDisciplinasSelecionadas(disciplinas) {
+    if(disciplinas >=1){
+        return true;
+    }else{
+        return false;
+    }
 }
