@@ -33,7 +33,7 @@ export class ListarAlunosComponent implements OnInit{
         this.atualizarListaAlunos();
     }
 
-    atualizarListaAlunos(){
+    atualizarListaAlunos(): void {
         this.alunoForm = this.formBuilder.group({
             nome:['', Validators.required],
             ingresso:['', Validators.required]
@@ -42,12 +42,12 @@ export class ListarAlunosComponent implements OnInit{
         this.gerarNumeroMatriculaAluno();
     }
 
-    gerarNumeroMatriculaAluno(): void{
+    gerarNumeroMatriculaAluno(): void {
         let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
         this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
     }
 
-    cadastrarAluno(){
+    cadastrarAluno(): void {
         let novoAluno = {
             nome:  this.alunoForm.get('nome').value,
             ingresso: this.ingresso,
@@ -61,11 +61,11 @@ export class ListarAlunosComponent implements OnInit{
         
     }
 
-    voltar(){
+    voltar(): void{
         this.voltarTela();
     }
 
-    public verificarAlunosSelecionados(){
+    public verificarAlunosSelecionados(): void {
         if(verificarAlunosSelecionados(this.alunosSelecionados.length)){
             this.verificarVagasTurma();
         }else{
@@ -73,7 +73,7 @@ export class ListarAlunosComponent implements OnInit{
         }
     }
 
-    public verificarVagasTurma(){
+    public verificarVagasTurma(): void {
         if(!verificarVagasTurma(this.turmaService.turma.vagas, this.alunosSelecionados.length)){
             alert("Número de alunos selecionados maior que vagas disponiveis na turma.");
         }else{
@@ -83,7 +83,7 @@ export class ListarAlunosComponent implements OnInit{
         }
     }
 
-    eventoLista(aluno: any) {
+    eventoLista(aluno: any): void {
         for (let index = 0; index < this.alunos.length; index++) {
             const alunoDisponivel = this.alunos[index];
             
@@ -101,15 +101,15 @@ export class ListarAlunosComponent implements OnInit{
         
     }
     
-    proximoTela(){
+    proximoTela(): void {
         this.proximaTela.emit();
     }
 
-    voltarTela(){
+    voltarTela(): void {
         this.voltaTela.emit();
     }
 
-    adicionar() {
+    adicionar(): void {
         this.poModal.open();
     }
 
@@ -128,12 +128,12 @@ export class ListarAlunosComponent implements OnInit{
         danger: true
     };
 
-    closeModal() {
+    closeModal(): void {
         this.alunoForm.reset();
         this.poModal.close();
     }
 
-    selecionarIngresso(event: any){
+    selecionarIngresso(event: any): void {
         this.ingresso = event;    
     }
 }

@@ -9,7 +9,7 @@ export class AlunoComponent{
     @Input() nome = '';
     @Output() eventoAluno = new EventEmitter<any>();
 
-    alterarSelecao(selecionado) {
+    alterarSelecao(selecionado): void {
         let aluno =  { 
             nome: this.nome, 
             selecionado
