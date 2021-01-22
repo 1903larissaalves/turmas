@@ -1,13 +1,42 @@
-import { verificarPossuiDisciplinasSelecionadas } from './listar-disciplinas.component';
+import { TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PoModule } from '@po-ui/ng-components';
+import { DisciplinaService } from '../service/disciplina.service';
+import { ListarDisciplinasComponents } from './listar-disciplinas.component';
 
-describe("A funcao verificarDisciplinasSelecionadas", ()=>{
-    it("deve confirmar se ha disciplinas para cadastrar nova turma", () =>{
+let listarDisciplinasComponents: ListarDisciplinasComponents;
+
+describe("O component disciplinas", () =>{
+
+    beforeEach(async() => {
+        TestBed.configureTestingModule({
+            declarations: [ ListarDisciplinasComponents ],
+            providers: [ DisciplinaService ],
+            imports: [
+                FormsModule,
+                ReactiveFormsModule,
+                PoModule
+            ]
+        }).compileComponents;
+    })
+
+    beforeEach(() =>{
+        const fixture = TestBed.createComponent(ListarDisciplinasComponents);
+        listarDisciplinasComponents = fixture.componentInstance;
+        fixture.detectChanges();
+    })
+
+    it("deve ser instanciado", () =>{
+        expect(listarDisciplinasComponents).toBeTruthy();
+    });
+
+    it('deve confirmar se ha disciplinas para cadastrar nova turma', () => {
         const disciplinas = 1;
-        expect(verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeTruthy();
+        expect(listarDisciplinasComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeTruthy();
     });
 
     it("deve confirmar se nao ha disciplinas para cadastrar nova turma", () =>{
         const disciplinas = 0;
-        expect(verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeFalsy();
+        expect(listarDisciplinasComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeFalsy();
     });
-});
+})
