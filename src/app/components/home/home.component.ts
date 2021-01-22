@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TurmaService } from '../turma/turma.service';
+import { TurmaService } from '../turma/service/turma.service';
 @Component({
     selector: 'app-home',
     templateUrl: 'home.component.html'

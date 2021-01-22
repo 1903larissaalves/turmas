@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
 
-import { TurmaService } from '../../turma/turma.service';
-import { AlunoService } from '../Aluno.service';
+import { TurmaService } from '../../turma/service/turma.service';
+import { AlunoService } from '../service/aluno.service';
 @Component({
     selector: 'app-listar-alunos',
     templateUrl: 'listar-alunos.component.html'

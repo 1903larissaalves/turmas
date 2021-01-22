@@ -2,9 +2,9 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PoModalAction, PoModalComponent, PoSelectOption } from '@po-ui/ng-components';
 
-import { ProfessorService } from '../../professor/professor.service';
-import { TurmaService } from '../../turma/turma.service';
-import { DisciplinaService } from '../disciplina.service';
+import { ProfessorService } from '../../professor/service/professor.service';
+import { TurmaService } from '../../turma/service/turma.service';
+import { DisciplinaService } from '../service/disciplina.service';
 
 @Component({
     selector: 'app-listar-disciplinas',

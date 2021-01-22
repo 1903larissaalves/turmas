@@ -1,8 +1,8 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { TurmaService } from '../turma.service';
+import { TurmaService } from '../service/turma.service';
 
 @Component({
     selector: 'app-cadastrar-turma',
@@ -12,6 +12,7 @@ export class CadastrarTurmaComponent implements OnInit{
 
     turmaForm: FormGroup;
     periodo;
+
     @Output() proximaTela = new EventEmitter<any>();
     @Output() voltaTela = new EventEmitter<any>();
 
@@ -26,12 +27,11 @@ export class CadastrarTurmaComponent implements OnInit{
             ano:['', Validators.required],
             periodo:['', Validators.required],
             vagas:['', Validators.required]
-          });
+        });
     }
 
     cancelar(){
-        //this.voltarTela();
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('home');
     }
 
     criarTurma(){
