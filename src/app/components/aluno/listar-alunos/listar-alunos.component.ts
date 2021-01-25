@@ -65,13 +65,18 @@ export class ListarAlunosComponent implements OnInit{
         this.voltarTela();
     }
 
-    verificarAlunosSelecionados(aluno) {
-        aluno = this.alunosSelecionados.length
-        if(aluno > 0){
+    validarTurma() {
+        if(this.verificarAlunosSelecionados()){
             this.finalizarTurma();
-            return true;
         }else{
             alert("Uma turma tem que ter ao menos um aluno.");
+        }
+    }
+
+    verificarAlunosSelecionados(){
+        if(this.alunosSelecionados.length > 0){
+            return true;
+        }else{
             return false;
         }
     }

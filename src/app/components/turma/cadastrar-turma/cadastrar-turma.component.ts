@@ -30,11 +30,7 @@ export class CadastrarTurmaComponent implements OnInit{
         });
     }
 
-    cancelar(){
-        this.router.navigateByUrl('home');
-    }
-
-    criarTurma(){
+    cadastrarTurma(){
         if(!this.turmaForm.invalid || this.turmaForm.pending){
             let turma = {
                 numero: this.turmaForm.get('numero').value,
@@ -55,6 +51,10 @@ export class CadastrarTurmaComponent implements OnInit{
 
     selecionarPeriodo(event){
         this.periodo = event;
+    }
+
+    cancelar(){
+        this.router.navigateByUrl('home');
     }
 
     proximoTela(){

@@ -40,4 +40,9 @@ describe("O component cadastrar-turma", () => {
         expect(cadastrarTurmaComponent.turmaForm.valid).toBeFalsy();
     });
 
+    it("deve confirmar que a turma tenha vagas", () => {
+        let vagas = cadastrarTurmaComponent.turmaForm.get('vagas').setValue(0);
+        expect(vagas).toBeFalsy();
+    });
+
 })

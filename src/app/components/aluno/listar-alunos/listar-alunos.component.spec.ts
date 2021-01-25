@@ -33,8 +33,7 @@ describe("O component listarAlunosComponent", () =>{
 
     it("deve verificar se foram selecionados alunos para a turma",
      () =>{
-         const alunos = 0;
-        expect(listarAlunosComponent.verificarAlunosSelecionados(alunos)).toBeFalsy();
+        expect(listarAlunosComponent.verificarAlunosSelecionados()).toBeFalsy();
     });
 
     it("deve confirmar se ha vagas na turma", () =>{
