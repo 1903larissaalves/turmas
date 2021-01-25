@@ -72,10 +72,11 @@ export class ListarDisciplinasComponents implements OnInit{
             nome: this.professorForm.get('nome').value,
             titulo: this.professorForm.get('titulo').value
         }
-
-        this.professorService.cadastrarNovoProfessor(professor);
-        this.atualizarListaProfessores();
-        this.voltarParaDisciplinas();
+        if(this.professorForm.valid){
+            this.professorService.cadastrarNovoProfessor(professor);
+            this.atualizarListaProfessores();
+            this.voltarParaDisciplinas();
+        }       
     }
 
     atualizarListaProfessores(){
@@ -132,7 +133,8 @@ export class ListarDisciplinasComponents implements OnInit{
             professor: this.disciplinasForm.get('professor').value,
             cargaHoraria: this.disciplinasForm.get('cargaHoraria').value
         }
-        this.disciplinaService.cadastrarDisciplina(disciplina);
+        if(this.disciplinasForm.valid)
+            this.disciplinaService.cadastrarDisciplina(disciplina);
     }
 
     proximoTela(){

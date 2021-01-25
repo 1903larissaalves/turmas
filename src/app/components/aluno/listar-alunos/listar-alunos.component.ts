@@ -52,13 +52,14 @@ export class ListarAlunosComponent implements OnInit{
             nome:  this.alunoForm.get('nome').value,
             ingresso: this.ingresso,
             matricula: this.numeroMatricula
-         };  
+        };  
 
-         this.alunoService.adicionarNovoAluno(novoAluno);
-         this.alunoForm.reset();
-         this.closeModal();
-         this.atualizarListaAlunos();
-        
+        if(this.alunoForm.valid){
+            this.alunoService.adicionarNovoAluno(novoAluno);
+            this.alunoForm.reset();
+            this.closeModal();
+            this.atualizarListaAlunos();
+        }
     }
 
     voltar(): void{
