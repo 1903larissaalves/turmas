@@ -35,19 +35,23 @@ export class CadastrarTurmaComponent implements OnInit{
     }
 
     criarTurma(){
-        
-        let turma = {
-            numero: this.turmaForm.get('numero').value,
-            ano: this.turmaForm.get('ano').value,
-            periodo: this.periodo,
-            vagas: this.turmaForm.get('vagas').value
-    
-        }
-        
-        this.turmaService.adicionarInformacoesTurma(turma.numero, turma.ano, turma.periodo, turma.vagas);
+        if(!this.turmaForm.invalid || this.turmaForm.pending){
+            let turma = {
+                numero: this.turmaForm.get('numero').value,
+                ano: this.turmaForm.get('ano').value,
+                periodo: this.periodo,
+                vagas: this.turmaForm.get('vagas').value
+            }
 
-        this.proximoTela();
+            if(turma.vagas > 0){
+                this.turmaService.adicionarInformacoesTurma(turma.numero, turma.ano, turma.periodo, turma.vagas);
+                this.proximoTela();
+            }else{
+                alert("Para a abertura de uma turma é necessário que haja pelo menos uma vaga");
+            }
+        }
     }
+
 
     selecionarPeriodo(event){
         this.periodo = event;
