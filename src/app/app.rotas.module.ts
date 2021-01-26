@@ -10,7 +10,7 @@ import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.comp
 
 const rotas: Routes = [
     {
-        path: 'home',
+        path: '',
         component: HomeComponent
     },
     {

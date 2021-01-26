@@ -1,20 +1,22 @@
-<div> 
-    <h2>Cadastrar Turma</h2>
-    <form [formGroup]="turmaForm">
-        <div>
+<h2 style="padding-bottom: 15px; padding-top: 45px;" class="po-md-12">Cadastrar Turma</h2>
+<form [formGroup]="turmaForm">
+    <div class="po-row">
+        <div class="po-md-6">
             <po-input name="numeroTurma" p-label="Número turma:" formControlName="numero"></po-input>
             <app-mensagem-erro *ngIf="turmaForm.get('numero').errors?.required"
-                 texto="Número da disciplina é um campo obrigatório.">
+                    texto="Número da disciplina é um campo obrigatório.">
             </app-mensagem-erro>
         </div>
-        <div>
+        <div  class="po-md-6">
             <po-input name="ano" p-label="Ano:" formControlName="ano"></po-input>
             <app-mensagem-erro
                 *ngIf="turmaForm.get('ano').errors?.required"
                 texto="Ano da disciplina é um campo obrigatório.">
             </app-mensagem-erro>
         </div>
-        <div>
+    </div>
+    <div class="po-row" style="padding-top: 20px">
+        <div class="po-md-6">
             <po-select
                 (p-change)="selecionarPeriodo($event)"
                 formControlName="periodo"
@@ -31,17 +33,16 @@
                 texto="Período da disciplina é um campo obrigatório.">
             </app-mensagem-erro>
         </div>
-        <div>
+        <div class="po-md-6">
             <po-input name="vagas" p-label="Vagas:" formControlName="vagas"></po-input>
             <app-mensagem-erro
                 *ngIf="turmaForm.get('vagas').errors?.required"
                 texto="Vagas é um campo obrigatório.">
             </app-mensagem-erro>
         </div>
-        <div style="display: flex; justify-content: space-between;">
-            <po-button p-type="danger" p-label="Cancelar" (p-click)="cancelar()"></po-button>
-            <po-button [p-disabled]="turmaForm.invalid" p-type="primary" p-label="Próximo" (p-click)="cadastrarTurma()"></po-button>
-        </div>
-    </form>
+    </div> 
+</form> 
+<div style="display: flex; justify-content: space-between; padding-top: 15px;"  class="po-md-12">
+    <po-button p-type="danger" p-label="Cancelar" (p-click)="cancelar()"></po-button>
+    <po-button [p-disabled]="turmaForm.invalid" p-type="primary" p-label="Próximo" (p-click)="cadastrarTurma()"></po-button>
 </div>
-    

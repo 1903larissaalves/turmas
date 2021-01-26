@@ -44,7 +44,7 @@ export class CadastrarTurmaComponent implements OnInit{
                 this.proximoTela();
             }else{
                 alert("Para a abertura de uma turma é necessário que haja pelo menos uma vaga");
-            }
+            }            
         }
     }
 

@@ -96,7 +96,7 @@ export class ListarAlunosComponent implements OnInit{
         }else{
             this.turmaService.adicionarAlunosTurmas(this.alunosSelecionados);
             this.turmaService.finalizarTurma();
-            this.router.navigateByUrl('home');
+            this.router.navigateByUrl('');
         }
     }
 
