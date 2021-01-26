@@ -1,9 +1,15 @@
-<h2>Disciplinas Cadastradas:</h2>
-<ul style="list-style-type: none">
-    <div *ngFor="let disciplina of disciplinas">
-        <app-disciplina [disciplina]="disciplina.nome" (eventoDisciplina)="eventoLista($event)" ></app-disciplina>
+<div class="po-row">
+    <div class="po-md-10" style="padding-bottom: 5px; padding-top: 20px;">
+        <h2>Disciplinas Cadastradas</h2>
+        <div style="overflow-y: auto; max-height: 350px;">
+            <ul style="list-style-type: none">
+                <div *ngFor="let disciplina of disciplinas">
+                    <app-disciplina [disciplina]="disciplina.nome" (eventoDisciplina)="eventoLista($event)" ></app-disciplina>
+                </div>
+            </ul>
+        </div>
     </div>
-</ul>
+</div>
 <po-modal [p-title]="tituloModal" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
     <form style="min-height: 300px;" *ngIf="exibindoCadastroDisciplina" #optionsForm="ngForm" [formGroup]="disciplinasForm">
         <div>
@@ -60,9 +66,8 @@
             </app-mensagem-erro>
         </div>
     </form>
-</po-modal>
-  
-<div style="display: flex; justify-content: space-between; padding-top: 20px;">
+</po-modal>  
+<div class="po-md-8" style="display: flex; justify-content: space-between; padding-top: 20px;">
     <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>
     <po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>
     <po-button p-type="primary" p-label="Próximo" (p-click)="proximo()"></po-button>

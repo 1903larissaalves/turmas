@@ -1,8 +1,6 @@
 <po-page-default>
-    
-    <h1 style="text-align: center;">Nome sistema</h1>
-    <div style="padding-top: 40px;">
-        <h2 *ngIf="turmas.length > 0" class="mt-4 text-center">Turmas Cadastradas:</h2>
+    <h2 *ngIf="turmas.length> 0" class="mt-4 text-center">Turmas Cadastradas:</h2>
+    <div style="overflow-y: auto; max-height: 350px;">
         <ul style="list-style-type: none; padding-top: 10px;">
             <li *ngFor="let turma of turmas">
                 <app-listar-turmas [numero]="turma.numero"></app-listar-turmas>

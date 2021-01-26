@@ -54,7 +54,7 @@ export class CadastrarTurmaComponent implements OnInit{
     }
 
     cancelar(){
-        this.router.navigateByUrl('home');
+        this.router.navigateByUrl('');
     }
 
     proximoTela(){

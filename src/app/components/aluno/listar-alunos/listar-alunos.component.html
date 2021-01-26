@@ -1,9 +1,15 @@
-<h2>Alunos Cadastrados</h2>
-<ul style="list-style-type: none">
-    <li *ngFor="let aluno of alunos">
-        <app-aluno [nome]="aluno.nome"  (eventoAluno)="eventoLista($event)"></app-aluno>
-    </li>
-</ul>
+<div class="po-row">
+    <div class="po-md-12" style="padding-bottom: 5px; padding-top: 20px;">        
+        <h2>Alunos Cadastrados</h2>
+        <div style="overflow-y: auto; max-height: 350px;">
+            <ul style="list-style-type: none">
+                <li *ngFor="let aluno of alunos">
+                    <app-aluno [nome]="aluno.nome"  (eventoAluno)="eventoLista($event)"></app-aluno>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 <po-modal p-title="Cadastrar novo aluno" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
     <form #optionsForm="ngForm" [formGroup]="alunoForm">
         <label>Número matricula: {{ numeroMatricula }}</label>
