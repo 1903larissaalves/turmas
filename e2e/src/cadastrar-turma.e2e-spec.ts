@@ -13,10 +13,10 @@ describe("Testando tela cadastrar-turma", () => {
     });
 
     it("deve cadastrar turma", () => {
-        expect(cadastrarTurmaPage.pegarInputNumero());
-        expect(cadastrarTurmaPage.pegarInputAno());
-        expect(cadastrarTurmaPage.pegarInputPeriodoLetivo());
-        expect(cadastrarTurmaPage.pegarInputVagas());
+        expect(cadastrarTurmaPage.pegarInput('numero', 'T-51'));
+        expect(cadastrarTurmaPage.pegarInput('ano', '2020'));
+        expect(cadastrarTurmaPage.pegarInput('periodo', '2° Trimestre'));
+        expect(cadastrarTurmaPage.pegarInput('vagas', '2'));
         expect(cadastrarTurmaPage.pegarBotaoProximo().click());
     })
 
