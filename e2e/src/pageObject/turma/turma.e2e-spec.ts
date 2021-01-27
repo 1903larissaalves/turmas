@@ -1,11 +1,11 @@
-import { CadastrarTurmaPage } from './cadastrar-turma.po'
+import { TurmaPage } from './turma.po'
 
 describe("Testando tela cadastrar-turma", () => {
 
-    let cadastrarTurmaPage: CadastrarTurmaPage;
+    let cadastrarTurmaPage: TurmaPage;
 
     beforeEach(() => {
-        cadastrarTurmaPage = new CadastrarTurmaPage();
+        cadastrarTurmaPage = new TurmaPage();
     });
 
     it("deve ir para cadastrar turma", () => {
@@ -18,6 +18,6 @@ describe("Testando tela cadastrar-turma", () => {
         expect(cadastrarTurmaPage.pegarInput('periodo', '2° Trimestre'));
         expect(cadastrarTurmaPage.pegarInput('vagas', '2'));
         expect(cadastrarTurmaPage.pegarBotaoProximo().click());
-    })
+    });
 
 });
