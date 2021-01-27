@@ -2,13 +2,26 @@
 <form [formGroup]="turmaForm">
     <div class="po-row">
         <div class="po-md-6">
-            <po-input name="numeroTurma" p-label="Número turma:" formControlName="numero"></po-input>
-            <app-mensagem-erro *ngIf="turmaForm.get('numero').errors?.required"
-                    texto="Número da disciplina é um campo obrigatório.">
+            <po-input 
+                name="numeroTurma"
+                p-label="Número turma:"
+                formControlName="numero"
+                p-placeholder="Informe o número (T-000)"
+                p-mask="T-999">
+            </po-input>
+            <app-mensagem-erro 
+                *ngIf="turmaForm.get('numero').errors?.required"
+                texto="Número da disciplina é um campo obrigatório.">
             </app-mensagem-erro>
         </div>
-        <div  class="po-md-6">
-            <po-input name="ano" p-label="Ano:" formControlName="ano"></po-input>
+        <div class="po-md-6">
+            <po-input
+                name="ano" 
+                p-label="Ano:" 
+                formControlName="ano"
+                p-placeholder="Informe o ano"
+                p-mask="9999">
+            </po-input>
             <app-mensagem-erro
                 *ngIf="turmaForm.get('ano').errors?.required"
                 texto="Ano da disciplina é um campo obrigatório.">
@@ -34,7 +47,13 @@
             </app-mensagem-erro>
         </div>
         <div class="po-md-6">
-            <po-input name="vagas" p-label="Vagas:" formControlName="vagas"></po-input>
+            <po-input
+                name="vagas"
+                p-label="Vagas:"
+                formControlName="vagas"    
+                p-placeholder="Informe o número de vagas"
+                p-mask="99">
+            </po-input>
             <app-mensagem-erro
                 *ngIf="turmaForm.get('vagas').errors?.required"
                 texto="Vagas é um campo obrigatório.">

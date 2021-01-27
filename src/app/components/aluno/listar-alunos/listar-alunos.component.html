@@ -14,7 +14,12 @@
     <form #optionsForm="ngForm" [formGroup]="alunoForm">
         <label>Número matricula: {{ numeroMatricula }}</label>
         <div>
-            <po-input p-label="Nome aluno:" formControlName="nome"></po-input>
+            <po-input
+                name="nomeAluno"
+                p-label="Nome aluno:"
+                formControlName="nome"
+                p-placeholder="Informe o nome do aluno">
+            </po-input>
             <app-mensagem-erro
                 *ngIf="alunoForm.get('nome').errors?.required"
                 texto="Nome é um campo obrigatório.">
@@ -22,10 +27,10 @@
         </div>
         <div>
             <po-select
+                name="ingresso"
+                p-label="Selecione o ingresso:"
                 formControlName="ingresso"
                 (p-change)="selecionarIngresso($event)"
-                name="select"
-                p-label="Ingresso:"
                 [p-options]="[
                     { label: 'Vestibular', value: 'vestibular' },
                     { label: 'Enade', value: 'enade' }
