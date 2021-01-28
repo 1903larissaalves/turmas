@@ -7,7 +7,7 @@ import { CadastrarTurmaComponent } from './cadastrar-turma.component';
 
 let cadastrarTurmaComponent: CadastrarTurmaComponent;
 
-describe("O component cadastrar-turma", () => {
+describe("CadastrarTurmaComponent", () => {
     
     beforeEach(async() => {
         TestBed.configureTestingModule({
@@ -19,8 +19,8 @@ describe("O component cadastrar-turma", () => {
                 PoModule,
                 RouterTestingModule.withRoutes([]),
             ]
-        }).compileComponents;
-    })
+        }).compileComponents();
+    });
 
     beforeEach(() =>{
         const fixture = TestBed.createComponent(CadastrarTurmaComponent);
@@ -28,7 +28,7 @@ describe("O component cadastrar-turma", () => {
         fixture.detectChanges();
     });
 
-    it("deve ser instanciado", () => {
+    it("deve criar componente", () => {
         expect(cadastrarTurmaComponent).toBeTruthy();
     });
 
@@ -45,4 +45,4 @@ describe("O component cadastrar-turma", () => {
         expect(vagas).toBeFalsy();
     });
 
-})
+});

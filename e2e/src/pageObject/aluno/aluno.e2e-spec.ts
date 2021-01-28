@@ -18,6 +18,5 @@ describe("Testando cadastrar alunos", () => {
         expect(alunoPage.pegarInput('ingresso', 'Enade'));
         expect(alunoPage.pegarBotao().click());
     });
-
-
+    
 });

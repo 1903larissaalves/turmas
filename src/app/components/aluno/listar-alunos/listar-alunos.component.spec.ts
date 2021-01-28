@@ -6,7 +6,7 @@ import { AlunoService } from '../service/aluno.service';
 import { ListarAlunosComponent } from './listar-alunos.component';
 let listarAlunosComponent: ListarAlunosComponent;
 
-describe("O component listarAlunosComponent", () =>{
+describe("ListarAlunosComponent", () =>{
 
     beforeEach(async() => {
         TestBed.configureTestingModule({
@@ -18,16 +18,16 @@ describe("O component listarAlunosComponent", () =>{
                 PoModule,
                 RouterTestingModule.withRoutes([])
             ]
-        }).compileComponents;
-    })
+        }).compileComponents();
+    });
 
     beforeEach(() =>{
         const fixture = TestBed.createComponent(ListarAlunosComponent);
         listarAlunosComponent = fixture.componentInstance;
         fixture.detectChanges();
-    })
+    });
 
-    it("deve ser instanciado", () =>{
+    it("deve criar componente", () =>{
         expect(listarAlunosComponent).toBeTruthy();
     });
 
@@ -47,4 +47,4 @@ describe("O component listarAlunosComponent", () =>{
         const numeroAlunos = 2;
         expect(listarAlunosComponent.verificarVagasTurma(vagas, numeroAlunos)).toBeFalsy();
     });
-})
+});

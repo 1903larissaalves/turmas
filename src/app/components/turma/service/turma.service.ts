@@ -1,25 +1,19 @@
 import { Injectable } from '@angular/core';
+import { Turma } from '../turma';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TurmaService{
 
-    turma:{
-        numero,
-        ano,
-        periodo,
-        vagas, 
-        disciplinas,
-        alunos
-    }
+    turma: Turma;
 
     iniciarNovaTurma(){
         this.turma = {
             numero: '',
-            ano: '',
+            ano: 2020,
             periodo: '',
-            vagas: '',
+            vagas: 2,
             disciplinas: [],
             alunos: []
         }
@@ -52,6 +46,66 @@ export class TurmaService{
         return this.turmas;        
     }
 
-    turmas = [];
-
+    turmas = [
+        {
+            numero: 'T-51',
+            ano: 2020,
+            periodo: '1° Trimestre',
+            vagas: 4, 
+            disciplinas:[
+                {
+                    cargaHoraria: 40,
+                    nome: 'Química',
+                    professor:[
+                        {
+                            nome: 'Emiliano Oliveira',
+                            titulo: 'Mestre'
+                        }
+                    ]
+                }
+            ],
+            alunos:[
+                {
+                    matricula: 9,
+                    nome: 'Oliver Santana',
+                    ingresso: 'Vestibular'
+                },
+                {
+                    matricula: 8,
+                    nome: 'Paulo Caliari',
+                    ingresso: 'Vestibular'
+                }
+            ]
+        },
+        {
+            numero: 'T-62',
+            ano: 2020,
+            periodo: '2° Trimestre',
+            vagas: 5, 
+            disciplinas:[
+                {
+                    cargaHoraria: 40,
+                    nome: 'Física',
+                    professor:[
+                        {
+                            nome: 'Gladis Berttodo',
+                            titulo: 'Doutor'
+                        }
+                    ]
+                }
+            ],
+            alunos:[
+                {
+                    matricula: 9,
+                    nome: 'Oliver Santana',
+                    ingresso: 'Vestibular'
+                },
+                {
+                    matricula: 8,
+                    nome: 'Paulo Caliari',
+                    ingresso: 'Vestibular'
+                }
+            ]
+        },
+    ];
 }

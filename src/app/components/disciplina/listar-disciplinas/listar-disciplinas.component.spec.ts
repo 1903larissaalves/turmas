@@ -6,7 +6,7 @@ import { ListarDisciplinasComponents } from './listar-disciplinas.component';
 
 let listarDisciplinasComponents: ListarDisciplinasComponents;
 
-describe("O component disciplinas", () =>{
+describe("ListarDisciplinasComponents", () => {
 
     beforeEach(async() => {
         TestBed.configureTestingModule({
@@ -17,16 +17,16 @@ describe("O component disciplinas", () =>{
                 ReactiveFormsModule,
                 PoModule
             ]
-        }).compileComponents;
-    })
+        }).compileComponents();
+    });
 
-    beforeEach(() =>{
+    beforeEach(() => {
         const fixture = TestBed.createComponent(ListarDisciplinasComponents);
         listarDisciplinasComponents = fixture.componentInstance;
         fixture.detectChanges();
-    })
+    }); 
 
-    it("deve ser instanciado", () =>{
+    it("deve criar componente", () =>{
         expect(listarDisciplinasComponents).toBeTruthy();
     });
 
@@ -39,4 +39,5 @@ describe("O component disciplinas", () =>{
         const disciplinas = 0;
         expect(listarDisciplinasComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeFalsy();
     });
-})
+
+});

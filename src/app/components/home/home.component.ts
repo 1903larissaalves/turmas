@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TurmaService } from '../turma/service/turma.service';
 @Component({
     selector: 'app-home',
@@ -13,5 +13,5 @@ export class HomeComponent implements OnInit{
     ngOnInit(): void {
         this.turmas = this.turmaService.listarTurmas();
     }
-    
+
 }
