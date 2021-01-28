@@ -8,7 +8,8 @@ import { DisciplinaService } from '../service/disciplina.service';
 
 @Component({
     selector: 'app-listar-disciplinas',
-    templateUrl: 'listar-disciplinas.component.html'
+    templateUrl: 'listar-disciplinas.component.html',
+    styleUrls: ['listar-disciplinas.component.css']
 })
 export class ListarDisciplinasComponents implements OnInit{
 

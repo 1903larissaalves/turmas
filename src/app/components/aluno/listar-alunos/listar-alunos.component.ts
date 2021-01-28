@@ -7,7 +7,8 @@ import { TurmaService } from '../../turma/service/turma.service';
 import { AlunoService } from '../service/aluno.service';
 @Component({
     selector: 'app-listar-alunos',
-    templateUrl: 'listar-alunos.component.html'
+    templateUrl: 'listar-alunos.component.html',
+    styleUrls: ['listar-alunos.component.css']    
 })
 export class ListarAlunosComponent implements OnInit{
 

@@ -1,0 +1,22 @@
+.scroll{
+    overflow-y: auto;
+    max-height: 350px;
+}
+.list-type{
+    list-style-type: none;
+}
+.min-heigt-modal{
+    min-height: 300px;
+}
+.float-right{
+    float:right;
+}
+.div-button{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.div-cadastro{
+    padding-bottom: 5px; 
+    padding-top: 20px;
+}
