@@ -1,9 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PoModule } from '@po-ui/ng-components';
 import { AlunoService } from '../service/aluno.service';
 import { ListarAlunosComponent } from './listar-alunos.component';
+
 let listarAlunosComponent: ListarAlunosComponent;
 
 describe("ListarAlunosComponent", () =>{
@@ -47,4 +49,14 @@ describe("ListarAlunosComponent", () =>{
         const numeroAlunos = 2;
         expect(listarAlunosComponent.verificarVagasTurma(vagas, numeroAlunos)).toBeFalsy();
     });
+
+    it('deve confirmar se foi gerado o numero de matricula', () => {
+        expect(listarAlunosComponent.gerarNumeroMatriculaAluno()).toBeTruthy();
+    });
+
+    it('deve confirmar se o formulario estiver invalido', () => {
+        listarAlunosComponent.alunoForm.get('nome').setValue('');
+        expect(listarAlunosComponent.cadastrarAluno()).toBeFalsy();
+    });
+    
 });

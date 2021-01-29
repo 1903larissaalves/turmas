@@ -43,12 +43,13 @@ export class ListarAlunosComponent implements OnInit{
         this.gerarNumeroMatriculaAluno();
     }
 
-    gerarNumeroMatriculaAluno(): void {
+    gerarNumeroMatriculaAluno(){
         let posicaoUltimoAluno =  this.alunoService.alunos.length - 1;
         this.numeroMatricula = this.alunoService.alunos[posicaoUltimoAluno].matricula + 1;
+        return true;
     }
 
-    cadastrarAluno(): void {
+    cadastrarAluno(){
         let novoAluno = {
             nome:  this.alunoForm.get('nome').value,
             ingresso: this.ingresso,
@@ -60,6 +61,9 @@ export class ListarAlunosComponent implements OnInit{
             this.alunoForm.reset();
             this.closeModal();
             this.atualizarListaAlunos();
+            return true;
+        }else{
+            return false;
         }
     }
 

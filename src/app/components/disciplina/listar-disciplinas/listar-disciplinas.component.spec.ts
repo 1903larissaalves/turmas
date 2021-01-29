@@ -40,4 +40,16 @@ describe("ListarDisciplinasComponents", () => {
         expect(listarDisciplinasComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeFalsy();
     });
 
+    it('deve retornar erro se o formulario de disciplinas estiver invalido', () => {
+        expect(listarDisciplinasComponents.disciplinasForm.invalid).toBeTruthy();
+    });
+
+    it('deve retornar erro se o formulario de professor estiver invalido', () => {
+        expect(listarDisciplinasComponents.professorForm.invalid).toBeTruthy();
+    });
+
+    it('deve confirmar atualizacao lista professores', () => {
+        expect(listarDisciplinasComponents.atualizarListaProfessores()).toBeTruthy();
+    });
+
 });

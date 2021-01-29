@@ -77,7 +77,9 @@ export class ListarDisciplinasComponents implements OnInit{
             this.professorService.cadastrarNovoProfessor(professor);
             this.atualizarListaProfessores();
             this.voltarParaDisciplinas();
-        }       
+        }else{
+            return false;
+        }
     }
 
     atualizarListaProfessores(){
@@ -89,6 +91,7 @@ export class ListarDisciplinasComponents implements OnInit{
                 { label: professor.nome, value: professor.nome }
             ]
         });
+        return true;
     }
 
     voltar(){
@@ -136,6 +139,8 @@ export class ListarDisciplinasComponents implements OnInit{
         }
         if(this.disciplinasForm.valid)
             this.disciplinaService.cadastrarDisciplina(disciplina);
+        else
+            return true;
     }
 
     proximoTela(){
