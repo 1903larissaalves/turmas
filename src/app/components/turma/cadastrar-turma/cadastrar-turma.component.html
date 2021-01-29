@@ -3,6 +3,7 @@
     <div class="po-row">
         <div class="po-md-6">
             <po-input 
+                id="numeroTurma"
                 name="numeroTurma"
                 p-label="Número turma:"
                 formControlName="numero"
@@ -16,6 +17,7 @@
         </div>
         <div class="po-md-6">
             <po-input
+                id="anoTurma" 
                 name="ano" 
                 p-label="Ano:" 
                 formControlName="ano"
@@ -31,9 +33,10 @@
     <div class="po-row" style="padding-top: 20px">
         <div class="po-md-6">
             <po-select
+                id="periodoTurma"
+                name="periodo"
                 (p-change)="selecionarPeriodo($event)"
                 formControlName="periodo"
-                name="select"
                 p-label="Período Letivo:"
                 [p-options]="[
                     { label: '1° Trimestre', value: '1° Trimestre' },
@@ -48,6 +51,7 @@
         </div>
         <div class="po-md-6">
             <po-input
+                id="vagasTurmas"
                 name="vagas"
                 p-label="Vagas:"
                 formControlName="vagas"    
@@ -62,6 +66,17 @@
     </div> 
 </form> 
 <div style="display: flex; justify-content: space-between; padding-top: 15px;"  class="po-md-12">
-    <po-button p-type="danger" p-label="Cancelar" (p-click)="cancelar()"></po-button>
-    <po-button [p-disabled]="turmaForm.invalid" p-type="primary" p-label="Próximo" (p-click)="cadastrarTurma()"></po-button>
+    <po-button
+        id="cancelarTurmaBtn"
+        p-type="danger"
+        p-label="Cancelar" 
+        (p-click)="cancelar()">
+    </po-button>
+    <po-button
+        id="ProximoTurmaBtn"
+        p-type="primary" 
+        p-label="Próximo" 
+        [p-disabled]="turmaForm.invalid"
+        (p-click)="cadastrarTurma()">
+    </po-button>
 </div>

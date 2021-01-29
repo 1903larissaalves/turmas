@@ -4,16 +4,24 @@
         <div class="scroll">
             <ul class="list-type">
                 <div *ngFor="let disciplina of disciplinas">
-                    <app-disciplina [disciplina]="disciplina.nome" (eventoDisciplina)="eventoLista($event)" ></app-disciplina>
+                    <app-disciplina
+                        [disciplina]="disciplina.nome" 
+                        (eventoDisciplina)="eventoLista($event)">
+                    </app-disciplina>
                 </div>
             </ul>
         </div>
     </div>
 </div>
 <po-modal [p-title]="tituloModal" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
-    <form class="min-heigt-modal" *ngIf="exibindoCadastroDisciplina" #optionsForm="ngForm" [formGroup]="disciplinasForm">
+    <form
+        class="min-heigt-modal"
+        *ngIf="exibindoCadastroDisciplina"
+        #optionsForm="ngForm"
+        [formGroup]="disciplinasForm">
         <div>
             <po-input
+                id="nomeDisciplina"
                 name="nomeDisciplina"
                 p-label="Nome disciplina:" 
                 formControlName="nome"
@@ -26,6 +34,7 @@
         </div>
         <div>
             <po-select
+                id="ProfessorDisciplina"    
                 name="Professor"    
                 p-label="Selecione o professor:"
                 formControlName="professor"
@@ -35,13 +44,15 @@
                 *ngIf="disciplinasForm.get('professor').errors?.required"
                 texto="Professor é um campo obrigatório.">
             </app-mensagem-erro>
-            <po-button 
+            <po-button
+                id="adicionarProfessorDisciplinaBtn"
                 class="float-right"
                 p-label="Adicionar"
                 (p-click)="irParaCadastroProfessor()">
             </po-button>
         </div>
         <po-input
+            id="cargaHorariaDisciplina"
             name="cargaHoraria"
             p-label="Carga Horaria:"
             formControlName="cargaHoraria"
@@ -53,9 +64,13 @@
             texto="Carga horaria é um campo obrigatório.">
         </app-mensagem-erro>
     </form>
-    <form class="min-heigt-modal" *ngIf="exibindoCadastroProfessor" [formGroup]="professorForm">
+    <form
+        class="min-heigt-modal"
+        *ngIf="exibindoCadastroProfessor"
+        [formGroup]="professorForm">
         <div>
             <po-input
+                id="nomeProfessor"
                 name="nomeProfessor"
                 p-label="Nome professor:"
                 formControlName="nome"
@@ -68,6 +83,7 @@
         </div>
         <div>
             <po-select
+                id="tituloProfessor"
                 name="titulo"
                 p-label="Selecione o título:"
                 formControlName="titulo"
@@ -85,8 +101,22 @@
     </form>
 </po-modal>  
 <div class="po-md-12" class="div-button">
-    <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>
-    <po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>
-    <po-button p-type="primary" p-label="Próximo" (p-click)="proximo()"></po-button>
+    <po-button
+        id="voltarDisciplinasBtn"
+        p-type="danger"
+        p-label="Voltar"
+        (p-click)="voltar()">
+    </po-button>
+    <po-button
+        id="AdicionarDisciplinasBtn"
+        p-label="Adicionar"
+        (p-click)="openQuestionnaire()">
+    </po-button>
+    <po-button
+        id="ProximoDisciplinasBtn"
+        p-type="primary"
+        p-label="Próximo"
+        (p-click)="proximo()">
+    </po-button>
 </div>
     
