@@ -9,7 +9,7 @@ import { DisciplinaModule } from './components/disciplina/disciplina.module';
 import { HomeComponent } from './components/home/home.component';
 import { ProfessorModule } from './components/professor/professor.module';
 import { StepperModule } from './components/shared/stepper/stepper.module';
-import { ListarTurmasComponent } from './components/turma/listar-turmas/listar-turmas.component';
+import { TurmaComponent } from './components/turma/listar-turmas/listar-turmas.component';
 import { TurmaModule } from './components/turma/turma.module';
 import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 
@@ -17,7 +17,7 @@ import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.comp
   declarations: [
     AppComponent,
     HomeComponent,
-    ListarTurmasComponent,
+    TurmaComponent,
     PaginaNaoEncontradaComponent
   ],
   imports: [
@@ -35,4 +35,4 @@ import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.comp
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

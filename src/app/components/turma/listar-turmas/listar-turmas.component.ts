@@ -2,9 +2,9 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'app-listar-turmas',
-    templateUrl: 'listar-turmas.component.html'
+    templateUrl: 'turma.component.html'
 })
-export class ListarTurmasComponent{
+export class TurmaComponent{
 
     @Input() numero: string = '';
 

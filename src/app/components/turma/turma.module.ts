@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 import { MensagemErroModule } from '../shared/mensagem-erro/mensagem-erro.module';
-import { CadastrarTurmaComponent } from './cadastrar-turma/cadastrar-turma.component';
+import { TurmaFormComponent } from './turma-form/turma-form.component';
 
 @NgModule({
     declarations:[
-        CadastrarTurmaComponent
+        TurmaFormComponent
     ],
     imports:[
         CommonModule,
@@ -18,9 +18,7 @@ import { CadastrarTurmaComponent } from './cadastrar-turma/cadastrar-turma.compo
         MensagemErroModule
     ], 
     exports:[
-        CadastrarTurmaComponent
+        TurmaFormComponent
     ]
 })
-export class TurmaModule{
-
-}
+export class TurmaModule{}

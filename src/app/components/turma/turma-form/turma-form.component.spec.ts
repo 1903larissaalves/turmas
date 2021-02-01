@@ -3,15 +3,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PoModule } from '@po-ui/ng-components';
 import { TurmaService } from '../service/turma.service';
-import { CadastrarTurmaComponent } from './cadastrar-turma.component';
+import { TurmaFormComponent } from './turma-form.component';
 
-let cadastrarTurmaComponent: CadastrarTurmaComponent;
+let turmaFormComponent: TurmaFormComponent;
 
 describe("CadastrarTurmaComponent", () => {
     
     beforeEach(async() => {
         TestBed.configureTestingModule({
-            declarations: [ CadastrarTurmaComponent ],
+            declarations: [ TurmaFormComponent ],
             providers: [ TurmaService ],
             imports: [
                 FormsModule,
@@ -23,25 +23,25 @@ describe("CadastrarTurmaComponent", () => {
     });
 
     beforeEach(() =>{
-        const fixture = TestBed.createComponent(CadastrarTurmaComponent);
-        cadastrarTurmaComponent = fixture.componentInstance;
+        const fixture = TestBed.createComponent(TurmaFormComponent);
+        turmaFormComponent = fixture.componentInstance;
         fixture.detectChanges();
     });
 
     it("deve criar componente", () => {
-        expect(cadastrarTurmaComponent).toBeTruthy();
+        expect(turmaFormComponent).toBeTruthy();
     });
 
     it("deve confirmar se os formulario foram preenchidos", () => {
-        expect(cadastrarTurmaComponent.turmaForm.invalid).toBeTruthy();
+        expect(turmaFormComponent.turmaForm.invalid).toBeTruthy();
     });
 
     it("deve confirmar se os formulario nao foram preenchidos", () => {
-        expect(cadastrarTurmaComponent.turmaForm.valid).toBeFalsy();
+        expect(turmaFormComponent.turmaForm.valid).toBeFalsy();
     });
 
     it("deve confirmar que a turma tenha vagas", () => {
-        let vagas = cadastrarTurmaComponent.turmaForm.get('vagas').setValue(0);
+        let vagas = turmaFormComponent.turmaForm.get('vagas').setValue(0);
         expect(vagas).toBeFalsy();
     });
 

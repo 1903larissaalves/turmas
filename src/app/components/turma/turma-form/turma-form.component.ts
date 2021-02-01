@@ -6,9 +6,9 @@ import { TurmaService } from '../service/turma.service';
 
 @Component({
     selector: 'app-cadastrar-turma',
-    templateUrl:'cadastrar-turma.component.html'
+    templateUrl:'turma-form.component.html'
 })
-export class CadastrarTurmaComponent implements OnInit{
+export class TurmaFormComponent implements OnInit{
 
     turmaForm: FormGroup;
     periodo;
@@ -49,7 +49,6 @@ export class CadastrarTurmaComponent implements OnInit{
             }            
         }
     }
-
 
     selecionarPeriodo(event){
         this.periodo = event;
