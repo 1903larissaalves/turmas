@@ -4,12 +4,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PoButtonModule, PoModule } from '@po-ui/ng-components';
 import { MensagemErroModule } from '../shared/mensagem-erro/mensagem-erro.module';
 import { DisciplinaComponent } from './disciplina/disciplina.component';
-import { ListarDisciplinasComponents } from './listar-disciplinas/listar-disciplinas.component';
-
+import { DisciplinaFormComponents } from './disciplina-form/disciplina-form.component';
 @NgModule({
     declarations:[
         DisciplinaComponent,
-        ListarDisciplinasComponents
+        DisciplinaFormComponents
     ],
     imports:[
         CommonModule,
@@ -21,9 +20,7 @@ import { ListarDisciplinasComponents } from './listar-disciplinas/listar-discipl
     ],
     exports:[
         DisciplinaComponent,
-        ListarDisciplinasComponents
+        DisciplinaFormComponents
     ]
 })
-export class DisciplinaModule{
-
-}
+export class DisciplinaModule{}

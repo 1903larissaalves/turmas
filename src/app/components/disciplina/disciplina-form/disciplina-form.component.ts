@@ -8,10 +8,10 @@ import { DisciplinaService } from '../service/disciplina.service';
 
 @Component({
     selector: 'app-listar-disciplinas',
-    templateUrl: 'listar-disciplinas.component.html',
-    styleUrls: ['listar-disciplinas.component.css']
+    templateUrl: 'disciplina-form.component.html',
+    styleUrls: ['disciplina-form.component.css']
 })
-export class ListarDisciplinasComponents implements OnInit{
+export class DisciplinaFormComponents implements OnInit{
 
     exibindoCadastroDisciplina: boolean = true;
     exibindoCadastroProfessor: boolean = false;

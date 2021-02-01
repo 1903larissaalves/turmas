@@ -2,15 +2,15 @@ import { TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PoModule } from '@po-ui/ng-components';
 import { DisciplinaService } from '../service/disciplina.service';
-import { ListarDisciplinasComponents } from './listar-disciplinas.component';
+import { DisciplinaFormComponents } from './disciplina-form.component';
 
-let listarDisciplinasComponents: ListarDisciplinasComponents;
+let disciplinaFormComponents: DisciplinaFormComponents;
 
 describe("ListarDisciplinasComponents", () => {
 
     beforeEach(async() => {
         TestBed.configureTestingModule({
-            declarations: [ ListarDisciplinasComponents ],
+            declarations: [ DisciplinaFormComponents ],
             providers: [ DisciplinaService ],
             imports: [
                 FormsModule,
@@ -21,35 +21,35 @@ describe("ListarDisciplinasComponents", () => {
     });
 
     beforeEach(() => {
-        const fixture = TestBed.createComponent(ListarDisciplinasComponents);
-        listarDisciplinasComponents = fixture.componentInstance;
+        const fixture = TestBed.createComponent(DisciplinaFormComponents);
+        disciplinaFormComponents = fixture.componentInstance;
         fixture.detectChanges();
     }); 
 
     it("deve criar componente", () =>{
-        expect(listarDisciplinasComponents).toBeTruthy();
+        expect(disciplinaFormComponents).toBeTruthy();
     });
 
     it('deve confirmar se ha disciplinas para cadastrar nova turma', () => {
         const disciplinas = 1;
-        expect(listarDisciplinasComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeTruthy();
+        expect(disciplinaFormComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeTruthy();
     });
 
     it("deve confirmar se nao ha disciplinas para cadastrar nova turma", () =>{
         const disciplinas = 0;
-        expect(listarDisciplinasComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeFalsy();
+        expect(disciplinaFormComponents.verificarPossuiDisciplinasSelecionadas(disciplinas)).toBeFalsy();
     });
 
     it('deve retornar erro se o formulario de disciplinas estiver invalido', () => {
-        expect(listarDisciplinasComponents.disciplinasForm.invalid).toBeTruthy();
+        expect(disciplinaFormComponents.disciplinasForm.invalid).toBeTruthy();
     });
 
     it('deve retornar erro se o formulario de professor estiver invalido', () => {
-        expect(listarDisciplinasComponents.professorForm.invalid).toBeTruthy();
+        expect(disciplinaFormComponents.professorForm.invalid).toBeTruthy();
     });
 
     it('deve confirmar atualizacao lista professores', () => {
-        expect(listarDisciplinasComponents.atualizarListaProfessores()).toBeTruthy();
+        expect(disciplinaFormComponents.atualizarListaProfessores()).toBeTruthy();
     });
 
 });
