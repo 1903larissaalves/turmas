@@ -8,7 +8,8 @@ import { DisciplinaService } from '../service/disciplina.service';
 
 @Component({
     selector: 'app-listar-disciplinas',
-    templateUrl: 'listar-disciplinas.component.html'
+    templateUrl: 'listar-disciplinas.component.html',
+    styleUrls: ['listar-disciplinas.component.css']
 })
 export class ListarDisciplinasComponents implements OnInit{
 
@@ -76,7 +77,9 @@ export class ListarDisciplinasComponents implements OnInit{
             this.professorService.cadastrarNovoProfessor(professor);
             this.atualizarListaProfessores();
             this.voltarParaDisciplinas();
-        }       
+        }else{
+            return false;
+        }
     }
 
     atualizarListaProfessores(){
@@ -88,6 +91,7 @@ export class ListarDisciplinasComponents implements OnInit{
                 { label: professor.nome, value: professor.nome }
             ]
         });
+        return true;
     }
 
     voltar(){
@@ -135,6 +139,8 @@ export class ListarDisciplinasComponents implements OnInit{
         }
         if(this.disciplinasForm.valid)
             this.disciplinaService.cadastrarDisciplina(disciplina);
+        else
+            return true;
     }
 
     proximoTela(){

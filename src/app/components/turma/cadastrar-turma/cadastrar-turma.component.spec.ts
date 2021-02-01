@@ -32,11 +32,11 @@ describe("CadastrarTurmaComponent", () => {
         expect(cadastrarTurmaComponent).toBeTruthy();
     });
 
-    it("deve confirmar se todos campos do formulario foram preenchidos", () => {
+    it("deve confirmar se os formulario foram preenchidos", () => {
         expect(cadastrarTurmaComponent.turmaForm.invalid).toBeTruthy();
     });
 
-    it("deve confirmar se campos do formulario nao foram preenchidos", () => {
+    it("deve confirmar se os formulario nao foram preenchidos", () => {
         expect(cadastrarTurmaComponent.turmaForm.valid).toBeFalsy();
     });
 

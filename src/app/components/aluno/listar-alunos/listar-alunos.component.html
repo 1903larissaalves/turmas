@@ -1,20 +1,26 @@
 <div class="po-row">
-    <div class="po-md-12" style="padding-bottom: 5px; padding-top: 20px;">        
+    <div class="po-md-12 div-cadastro">        
         <h2>Alunos Cadastrados</h2>
-        <div style="overflow-y: auto; max-height: 350px;">
-            <ul style="list-style-type: none">
+        <div class="scroll">
+            <ul class="list-type">
                 <li *ngFor="let aluno of alunos">
-                    <app-aluno [nome]="aluno.nome"  (eventoAluno)="eventoLista($event)"></app-aluno>
+                    <app-aluno
+                        [nome]="aluno.nome"
+                        (eventoAluno)="eventoLista($event)">
+                    </app-aluno>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 <po-modal p-title="Cadastrar novo aluno" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
-    <form #optionsForm="ngForm" [formGroup]="alunoForm">
+    <form
+        #optionsForm="ngForm"
+        [formGroup]="alunoForm">
         <label>Número matricula: {{ numeroMatricula }}</label>
         <div>
             <po-input
+                id="nomeAluno"
                 name="nomeAluno"
                 p-label="Nome aluno:"
                 formControlName="nome"
@@ -27,6 +33,7 @@
         </div>
         <div>
             <po-select
+                id="ingressoAluno"
                 name="ingresso"
                 p-label="Selecione o ingresso:"
                 formControlName="ingresso"
@@ -43,9 +50,23 @@
         </div>
     </form>
 </po-modal>
-<div style="display: flex; justify-content: space-between; padding-top: 20px;">
-    <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>    
-    <po-button p-label="Adicionar" (p-click)="adicionar()"> </po-button>
-    <po-button p-type="primary" p-label="Concluir" (p-click)="validarTurma()"></po-button>
+<div class="div-button">
+    <po-button
+        id="voltarBtn"
+        p-type="danger"
+        p-label="Voltar"
+        (p-click)="voltar()">
+    </po-button>    
+    <po-button
+        id="AdicionarAlunoBtn"
+        p-label="Adicionar"
+        (p-click)="adicionar()">
+    </po-button>
+    <po-button
+        id="conluirTurmaBtn"
+        p-type="primary"
+        p-label="Concluir"
+        (p-click)="validarTurma()">
+    </po-button>
 </div>
   

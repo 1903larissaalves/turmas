@@ -1,19 +1,27 @@
 <div class="po-row">
-    <div class="po-md-12" style="padding-bottom: 5px; padding-top: 20px;">
+    <div class="po-md-12 div-cadastro">
         <h2>Disciplinas Cadastradas</h2>
-        <div style="overflow-y: auto; max-height: 350px;">
-            <ul style="list-style-type: none">
+        <div class="scroll">
+            <ul class="list-type">
                 <div *ngFor="let disciplina of disciplinas">
-                    <app-disciplina [disciplina]="disciplina.nome" (eventoDisciplina)="eventoLista($event)" ></app-disciplina>
+                    <app-disciplina
+                        [disciplina]="disciplina.nome" 
+                        (eventoDisciplina)="eventoLista($event)">
+                    </app-disciplina>
                 </div>
             </ul>
         </div>
     </div>
 </div>
 <po-modal [p-title]="tituloModal" [p-primary-action]="confirmar" [p-secondary-action]="fechar">
-    <form style="min-height: 300px;" *ngIf="exibindoCadastroDisciplina" #optionsForm="ngForm" [formGroup]="disciplinasForm">
+    <form
+        class="min-heigt-modal"
+        *ngIf="exibindoCadastroDisciplina"
+        #optionsForm="ngForm"
+        [formGroup]="disciplinasForm">
         <div>
             <po-input
+                id="nomeDisciplina"
                 name="nomeDisciplina"
                 p-label="Nome disciplina:" 
                 formControlName="nome"
@@ -26,6 +34,7 @@
         </div>
         <div>
             <po-select
+                id="ProfessorDisciplina"    
                 name="Professor"    
                 p-label="Selecione o professor:"
                 formControlName="professor"
@@ -35,9 +44,15 @@
                 *ngIf="disciplinasForm.get('professor').errors?.required"
                 texto="Professor é um campo obrigatório.">
             </app-mensagem-erro>
-            <po-button style="float:right" p-label="Adicionar" (p-click)="irParaCadastroProfessor()"></po-button>
+            <po-button
+                id="adicionarProfessorDisciplinaBtn"
+                class="float-right"
+                p-label="Adicionar"
+                (p-click)="irParaCadastroProfessor()">
+            </po-button>
         </div>
         <po-input
+            id="cargaHorariaDisciplina"
             name="cargaHoraria"
             p-label="Carga Horaria:"
             formControlName="cargaHoraria"
@@ -49,9 +64,13 @@
             texto="Carga horaria é um campo obrigatório.">
         </app-mensagem-erro>
     </form>
-    <form style="min-height: 300px;" *ngIf="exibindoCadastroProfessor" [formGroup]="professorForm">
+    <form
+        class="min-heigt-modal"
+        *ngIf="exibindoCadastroProfessor"
+        [formGroup]="professorForm">
         <div>
             <po-input
+                id="nomeProfessor"
                 name="nomeProfessor"
                 p-label="Nome professor:"
                 formControlName="nome"
@@ -64,6 +83,7 @@
         </div>
         <div>
             <po-select
+                id="tituloProfessor"
                 name="titulo"
                 p-label="Selecione o título:"
                 formControlName="titulo"
@@ -80,9 +100,23 @@
         </div>
     </form>
 </po-modal>  
-<div class="po-md-12" style="display: flex; justify-content: space-between; padding-top: 20px;">
-    <po-button p-type="danger" p-label="Voltar" (p-click)="voltar()"></po-button>
-    <po-button p-label="Adicionar" (p-click)="openQuestionnaire()"> </po-button>
-    <po-button p-type="primary" p-label="Próximo" (p-click)="proximo()"></po-button>
+<div class="po-md-12" class="div-button">
+    <po-button
+        id="voltarTurmaBtn"
+        p-type="danger"
+        p-label="Voltar"
+        (p-click)="voltar()">
+    </po-button>
+    <po-button
+        id="AdicionarDisciplinasBtn"
+        p-label="Adicionar"
+        (p-click)="openQuestionnaire()">
+    </po-button>
+    <po-button
+        id="ProximoDisciplinasBtn"
+        p-type="primary"
+        p-label="Próximo"
+        (p-click)="proximo()">
+    </po-button>
 </div>
     

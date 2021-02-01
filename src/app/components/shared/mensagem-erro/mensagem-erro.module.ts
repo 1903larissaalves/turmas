@@ -13,6 +13,4 @@ import { MensagemValidacaoComponent } from './mensagem-erro.component';
         MensagemValidacaoComponent
     ]
 })
-export class MensagemErroModule{
-
-}
+export class MensagemErroModule{}

@@ -42,8 +42,10 @@ export class CadastrarTurmaComponent implements OnInit{
             if(turma.vagas > 0){
                 this.turmaService.adicionarInformacoesTurma(turma.numero, turma.ano, turma.periodo, turma.vagas);
                 this.proximoTela();
+                return true;
             }else{
                 alert("Para a abertura de uma turma é necessário que haja pelo menos uma vaga");
+                return false;
             }            
         }
     }
