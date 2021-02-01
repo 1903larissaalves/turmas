@@ -7,10 +7,10 @@ import { TurmaService } from '../../turma/service/turma.service';
 import { AlunoService } from '../service/aluno.service';
 @Component({
     selector: 'app-listar-alunos',
-    templateUrl: 'listar-alunos.component.html',
-    styleUrls: ['listar-alunos.component.css']    
+    templateUrl: 'aluno-form.component.html',
+    styleUrls: ['aluno-form.component.css']    
 })
-export class ListarAlunosComponent implements OnInit{
+export class AlunoFormComponent implements OnInit{
 
     alunos: any[] = [];
     alunosSelecionados: any[] = [];

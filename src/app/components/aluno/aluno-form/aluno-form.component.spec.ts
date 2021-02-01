@@ -4,15 +4,15 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PoModule } from '@po-ui/ng-components';
 import { AlunoService } from '../service/aluno.service';
-import { ListarAlunosComponent } from './listar-alunos.component';
+import { AlunoFormComponent } from './aluno-form.component';
 
-let listarAlunosComponent: ListarAlunosComponent;
+let alunoFormComponent: AlunoFormComponent;
 
-describe("ListarAlunosComponent", () =>{
+describe("AlunoFormComponent", () =>{
 
     beforeEach(async() => {
         TestBed.configureTestingModule({
-            declarations: [ ListarAlunosComponent ],
+            declarations: [ AlunoFormComponent ],
             providers: [ AlunoService ],
             imports: [
                 FormsModule,
@@ -24,39 +24,39 @@ describe("ListarAlunosComponent", () =>{
     });
 
     beforeEach(() =>{
-        const fixture = TestBed.createComponent(ListarAlunosComponent);
-        listarAlunosComponent = fixture.componentInstance;
+        const fixture = TestBed.createComponent(AlunoFormComponent);
+        alunoFormComponent = fixture.componentInstance;
         fixture.detectChanges();
     });
 
     it("deve criar componente", () =>{
-        expect(listarAlunosComponent).toBeTruthy();
+        expect(alunoFormComponent).toBeTruthy();
     });
 
     it("deve verificar se foram selecionados alunos para a turma",
      () =>{
-        expect(listarAlunosComponent.verificarAlunosSelecionados()).toBeFalsy();
+        expect(alunoFormComponent.verificarAlunosSelecionados()).toBeFalsy();
     });
 
     it("deve confirmar se ha vagas na turma", () =>{
         const vagas = 1;
         const numeroAlunos = 1;
-        expect(listarAlunosComponent.verificarVagasTurma(vagas, numeroAlunos)).toBeTruthy();
+        expect(alunoFormComponent.verificarVagasTurma(vagas, numeroAlunos)).toBeTruthy();
     }); 
     
     it("deve confirmar se nao ha vagas na turma", () =>{
         const vagas = 1;
         const numeroAlunos = 2;
-        expect(listarAlunosComponent.verificarVagasTurma(vagas, numeroAlunos)).toBeFalsy();
+        expect(alunoFormComponent.verificarVagasTurma(vagas, numeroAlunos)).toBeFalsy();
     });
 
     it('deve confirmar se foi gerado o numero de matricula', () => {
-        expect(listarAlunosComponent.gerarNumeroMatriculaAluno()).toBeTruthy();
+        expect(alunoFormComponent.gerarNumeroMatriculaAluno()).toBeTruthy();
     });
 
     it('deve confirmar se o formulario estiver invalido', () => {
-        listarAlunosComponent.alunoForm.get('nome').setValue('');
-        expect(listarAlunosComponent.cadastrarAluno()).toBeFalsy();
+        alunoFormComponent.alunoForm.get('nome').setValue('');
+        expect(alunoFormComponent.cadastrarAluno()).toBeFalsy();
     });
     
 });
