@@ -9,7 +9,7 @@ import { DisciplinaModule } from './components/disciplina/disciplina.module';
 import { HomeComponent } from './components/home/home.component';
 import { ProfessorModule } from './components/professor/professor.module';
 import { StepperModule } from './components/shared/stepper/stepper.module';
-import { TurmaComponent } from './components/turma/listar-turmas/listar-turmas.component';
+import { TurmaComponent } from './components/turma/turma/turma.component';
 import { TurmaModule } from './components/turma/turma.module';
 import { PaginaNaoEncontradaComponent } from './erros/pagina-nao-encontrada.component';
 
